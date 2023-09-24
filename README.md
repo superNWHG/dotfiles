@@ -16,4 +16,8 @@ For .zshrc do:
 For pacman.conf do:
 ```sudo ln -s ~/dotfiles/pacman.conf /etc/pacman.conf```
 
+For rofi do:
+```ln -s ~/dotfiles/rofi ~/.local/share/```
+```ls -s ~/dotfiles/config.rasi ~/.config/rofi/```
+
 Install script coming soon!
