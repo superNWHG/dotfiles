@@ -5,7 +5,9 @@ Hello, welcome to my dotfiles!
 **Installation**
 
 first, clone the repo by doing:
-```git clone https://github.com/superNWHG/dotfiles.git```
+```shell
+git clone https://github.com/superNWHG/dotfiles.git
+```
 
 Then, create a symlink for every file or directory:
 ```shell
