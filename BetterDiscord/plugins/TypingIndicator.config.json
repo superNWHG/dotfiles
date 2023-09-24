@@ -1,0 +1,14 @@
+{
+    "currentVersionInfo": {
+        "version": "0.5.4",
+        "hasShownChangelog": true
+    },
+    "settings": {
+        "channels": true,
+        "includeMuted": true,
+        "includeBlocked": false,
+        "guilds": false,
+        "folders": false,
+        "dms": false
+    }
+}
