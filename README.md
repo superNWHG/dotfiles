@@ -4,7 +4,7 @@ Hello, welcome to my dotfiles!
 
 **Installation**
 
-first, clone the repo by doing:
+First, clone the repo by doing:
 ```shell
 git clone https://github.com/superNWHG/dotfiles.git
 ```
