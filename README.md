@@ -24,4 +24,8 @@ For wallpapers do:
 ```ln -s ~/dotfiles/wallpaper/ ~/Pictures/```
 This is just a set of wallpaper I have used, currently I only use the dracula wallpaper (arch.png). Feel free to use any of them or add more.
 
+For Arduino (theme directory) do:
+```sudo mv /usr/share/arduino/lib/theme/ /usr/share/arduino/lib/theme.bak/```
+```sudo ln -s ~/dotfiles/theme/ /usr/share/arduino/lib/```
+
 Install script coming soon!
