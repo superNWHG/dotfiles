@@ -13,4 +13,7 @@ Then, create a symlink for every file or directory:
 For .zshrc do:
 ```ln -s ~/dotfiles/.zshrc ~/.zshrc```
 
+For pacman.conf do:
+```sudo ln -s ~/dotfiles/pacman.conf /etc/pacman.conf```
+
 Install script coming soon!
