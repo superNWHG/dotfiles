@@ -21,7 +21,7 @@ For rofi do:
 ```ln -s ~/dotfiles/config.rasi/ ~/.config/rofi/```
 
 For wallpapers do:
-```ln -s ~/dotfiles/wallpaper ~/Pictures/```
+```ln -s ~/dotfiles/wallpaper/ ~/Pictures/```
 This is a set of wallpaper I have used, currently I only use the dracula wallpaper (arch.png). Feel free to use any of them or add more.
 
 Install script coming soon!
