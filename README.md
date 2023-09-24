@@ -18,6 +18,6 @@ For pacman.conf do:
 
 For rofi do:
 ```ln -s ~/dotfiles/rofi ~/.local/share/```
-```ls -s ~/dotfiles/config.rasi ~/.config/rofi/```
+```ln -s ~/dotfiles/config.rasi ~/.config/rofi/```
 
 Install script coming soon!
