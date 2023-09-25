@@ -4,12 +4,27 @@ Hello, welcome to my dotfiles!
 
 **Installation**
 
-First, clone the repo by doing:
+Clone the repo by doing:
 ```shell
 git clone https://github.com/superNWHG/dotfiles.git
 ```
+**Install using the install script (not tested yet)**
 
-Then, create a symlink for every file or directory:
+Make the script executable
+```shell
+sudo chmod +x ~/dotfiles/install.sh
+```
+
+Execute the install script
+```shell
+./~/dotfiles/install.sh
+```
+
+
+
+**Manual Installation**
+
+First, create a symlink for every file or directory:
 ```shell
 sudo rm -rf ~/.config/file-or-directory-you-want-to-symlink/
 ln -s ~/dotfiles/file-or-directory-you-want-to-symlink/ ~/.config/
@@ -49,4 +64,4 @@ sudo mv /usr/share/arduino/lib/theme/ /usr/share/arduino/lib/theme.bak/
 sudo ln -s ~/dotfiles/Arduino/theme/ /usr/share/arduino/lib/
 ```
 
-Install script coming soon!
+Screenshots script coming soon!
