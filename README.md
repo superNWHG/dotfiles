@@ -11,35 +11,42 @@ git clone https://github.com/superNWHG/dotfiles.git
 
 Then, create a symlink for every file or directory:
 ```shell
+sudo rm -rf ~/.config/file-or-directory-you-want-to-symlink/
 ln -s ~/dotfiles/file-or-directory-you-want-to-symlink/ ~/.config/
 ```
 
 For .zshrc do:
 ```shell
-ln -s ~/dotfiles/.zshrc/ ~/.zshrc/
+sudo rm ~/.zshrc/
+ln -s ~/dotfiles/Zsh/.zshrc ~/
 ```
 
 For pacman.conf do:
 ```shell
-sudo ln -s ~/dotfiles/pacman.conf/ /etc/pacman.conf/
+sudo rm /etc/pacman.conf/
+sudo ln -s ~/dotfiles/Pacman/pacman.conf/ /etc/
 ```
 
 For rofi do:
 ```shell
-ln -s ~/dotfiles/rofi/ ~/.local/share/
-ln -s ~/dotfiles/config.rasi/ ~/.config/rofi/
+sudo rm -rf ~/.local/share/rofi/
+ln -s ~/dotfiles/Rofi/rofi/ ~/.local/share/
+
+sudo rm -rf ~/.config/rofi/
+sudo mkdir ~/.config/rofi/
+ln -s ~/dotfiles/Rofi/config.rasi/ ~/.config/rofi/
 ```
 
 For wallpapers do:
 ```shell
-ln -s ~/dotfiles/wallpaper/ ~/Pictures/
+ln -s ~/dotfiles/Wallpapers/ ~/Pictures/
 ```
 This is just a set of wallpaper I have used, currently I only use the dracula wallpaper (arch.png). Feel free to use any of them or add more.
 
-For Arduino (theme directory) do:
+For Arduino do:
 ```shell
 sudo mv /usr/share/arduino/lib/theme/ /usr/share/arduino/lib/theme.bak/
-sudo ln -s ~/dotfiles/theme/ /usr/share/arduino/lib/
+sudo ln -s ~/dotfiles/Arduino/theme/ /usr/share/arduino/lib/
 ```
 
 Install script coming soon!
