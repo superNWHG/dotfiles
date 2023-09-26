@@ -7,7 +7,7 @@ _This is my own Arch linux configuration, I hope you get some inspiration from t
 
 Clone the repo by doing:
 ```shell
-git clone --recursive https://github.com/superNWHG/dotfiles.git
+git clone --recursive https://github.com/superNWHG/dotfiles.git ~/dotfiles/
 ```
 **Install using the install script (not tested yet)**
 
@@ -29,6 +29,12 @@ First, create a symlink for every file or directory:
 ```shell
 sudo rm -rf ~/.config/file-or-directory-you-want-to-symlink/
 ln -s ~/dotfiles/file-or-directory-you-want-to-symlink/ ~/.config/
+```
+
+For example, for kitty do:
+```shell
+sudo rm -rf ~/.config/kitty/
+ln -s ~/dotfiles/Kitty/kitty/ ~/.config/
 ```
 
 For .zshrc do:
