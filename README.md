@@ -7,7 +7,7 @@ _This is my own Arch linux configuration, I hope you get some inspiration from t
 
 Clone the repo by doing:
 ```shell
-git clone https://github.com/superNWHG/dotfiles.git
+git clone --recursive https://github.com/superNWHG/dotfiles.git
 ```
 **Install using the install script (not tested yet)**
 
