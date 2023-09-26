@@ -3,7 +3,7 @@
 		"batch": {
 			"dms": false,
 			"guilds": true,
-			"muted": true
+			"muted": false
 		},
 		"blacklist": [],
 		"general": {
