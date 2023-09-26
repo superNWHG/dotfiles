@@ -1,6 +1,7 @@
 # dotfiles
 Hello, welcome to my dotfiles!
 
+This is my own Arch linux configuration, You I hope you get some inspiration from this.
 
 **Installation**
 
