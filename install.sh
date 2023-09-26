@@ -1,6 +1,9 @@
 #!/bin/bash
 # Install script for the dotfiles
 
+# Create a debug.log
+sudo touch ~/dotfiles/debug.log/
+
 # Install Arduino theme
 sudo mv /usr/share/arduino/lib/theme/ /usr/share/arduino/lib/theme.bak/ >~/dotfiles/debug.log/
 sudo ln -s ~/dotfiles/Arduino/theme/ /usr/share/arduino/lib/ >~/dotfiles/debug.log/
