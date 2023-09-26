@@ -11,7 +11,7 @@ git clone --recursive https://github.com/superNWHG/dotfiles.git
 ```
 **Install using the install script (not tested yet)**
 
-Make the script executable
+Make the script executable if it's not already
 ```shell
 sudo chmod +x ~/dotfiles/install.sh
 ```
