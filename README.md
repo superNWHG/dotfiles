@@ -65,4 +65,4 @@ sudo mv /usr/share/arduino/lib/theme/ /usr/share/arduino/lib/theme.bak/
 sudo ln -s ~/dotfiles/Arduino/theme/ /usr/share/arduino/lib/
 ```
 
-Screenshots coming soon!
+Screenshots and more config files coming soon!
