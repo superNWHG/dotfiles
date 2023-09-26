@@ -65,4 +65,10 @@ sudo mv /usr/share/arduino/lib/theme/ /usr/share/arduino/lib/theme.bak/
 sudo ln -s ~/dotfiles/Arduino/theme/ /usr/share/arduino/lib/
 ```
 
+For oh-my-zsh do:
+```shell
+sudo rm -rf ~/.oh-my-zsh/custom/
+ln -s ~/dotfiles/Zsh/custom/ ~/.oh-my-zsh/
+```
+
 Screenshots and more config files coming soon!

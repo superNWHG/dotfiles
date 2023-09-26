@@ -75,7 +75,7 @@ ZSH_THEME="bira"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions vscode zsh-syntax-highlighting k sudo archlinux aliases fzf-tab)
+plugins=(zsh-autosuggestions vscode zsh-syntax-highlighting k sudo archlinux aliases fzf-tab alias-tips)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -129,3 +129,4 @@ zstyle ':completion*:descriptions' format '[%d]'
 alias nvim="sudo -E nvim"
 alias clear="printf '\033[H\033[2J\033[3J'"
 alias please="sudo"
+alias clean="sudo pacman -Scc && sudo pacman -Rns $(pacman -Qtdq) && sudo rm -rf ~/.cache/*"

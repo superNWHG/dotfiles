@@ -51,3 +51,7 @@ ln -s ~/dotfiles/Wallpapers/ ~/Pictures/ >~/dotfiles/debug.log/
 # Install zsh
 sudo rm -rf ~/.zshrc >~/dotfiles/debug.log/
 ln -s ~/dotfiles/Zsh/.zshrc ~/.zshrc >~/dotfiles/debug.log/
+
+# Install oh my zsh
+sudo rm -rf ~/.oh-my-zsh/custom/ >~/dotfiles/debug.log/
+ln -s ~/dotfiles/Zsh/custom/ ~/.oh-my-zsh/ >~/dotfiles/debug.log/
