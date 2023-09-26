@@ -1,3 +1,15 @@
 [submodule "Zsh/custom/plugins/k"]
 	path = Zsh/custom/plugins/k
 	url = https://github.com/supercrabtree/k
+[submodule "Zsh/custom/plugins/alias-tips"]
+	path = Zsh/custom/plugins/alias-tips
+	url = https://github.com/djui/alias-tips
+[submodule "Zsh/custom/plugins/fzf-tab"]
+	path = Zsh/custom/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab
+[submodule "Zsh/custom/plugins/zsh-autosuggestions"]
+	path = Zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "Zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = Zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
