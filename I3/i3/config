@@ -172,7 +172,7 @@ assign [class="Lxappearance"] $ws6
 assign [class="Blueberry.py"] $ws6
 assign [class="Arandr"] $ws6
 assign [class="Grub-customizer"] $ws6
-assign [class="Whatstux"] $ws9
+assign [class="WhatSie"] $ws9
 assign [class="Thunar"] $ws4
 assign [class="unityhub"] $ws5
 assign [class="code-oss"] $ws5
@@ -225,7 +225,7 @@ exec keepass
 exec firefox
 exec discord
 exec flameshot
-exec whatstux
+exec whatsie
 #exec_always feh --randomize --bg-scale /home/nico/Pictures/Wallpapers/*
 exec_always feh --bg-fill /home/nico/Pictures/Wallpapers/arch.png
 
