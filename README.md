@@ -80,8 +80,8 @@ sudo ln -s ~/dotfiles/Arduino/theme/ /usr/share/arduino/lib/
 For oh my zsh do:
 ```shell
 sudo rm -rf ~/.oh-my-zsh/custom/
-ln -s ~/dotfiles/Zsh/custom/ ~/.oh-my-zsh/
 ```
+Do not create a symlink for oh my zsh because it will lead to update failures.
 
 For powerlevel10k do:
 ```shell
