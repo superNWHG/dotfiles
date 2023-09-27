@@ -9,6 +9,12 @@ Clone the repo by doing:
 ```shell
 git clone --recursive https://github.com/superNWHG/dotfiles.git ~/dotfiles/
 ```
+
+Eventually update the submodules by doing:
+```shell
+git submodule update --init --recursive
+```
+
 **Install using the install script (not tested yet)**
 
 Make the script executable if it's not already
