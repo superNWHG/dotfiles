@@ -77,4 +77,10 @@ sudo rm -rf ~/.oh-my-zsh/custom/
 ln -s ~/dotfiles/Zsh/custom/ ~/.oh-my-zsh/
 ```
 
+For powerlevel10k do:
+```shell
+sudo rm -rf ~/.p10k.zsh/
+ln -s ~/dotfiles/Zsh/.p10k.zsh ~/
+```
+
 Screenshots and more config files coming soon!

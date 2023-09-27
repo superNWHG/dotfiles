@@ -13,3 +13,6 @@
 [submodule "Zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = Zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "Zsh/custom/themes/powerlevel10k"]
+	path = Zsh/custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git

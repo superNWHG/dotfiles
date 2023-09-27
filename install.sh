@@ -59,3 +59,7 @@ ln -s ~/dotfiles/Zsh/custom/ ~/.oh-my-zsh/ >~/dotfiles/debug.log/
 # Install i3lock-color
 sudo rm -rf ~/.config/i3lock-color/ >~/dotfiles/debug.log/
 ln -s ~/dotfiles/I3lock-color/i3lock-color/ ~/.config/ >~/dotfiles/debug.log/
+
+# Install powerlevel10k
+sudo rm -rf ~/.p10k.zsh >~/dotfiles/debug.log/
+ln -s ~/dotfiles/Zsh/.p10k.zsh ~/ >~/dotfiles/debug.log/
