@@ -266,3 +266,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # update packages every boot
 exec ./~/.config/scripts/update_packages.sh
+
+bindsym Shift+$mod+bracketright move workspace to output right
+bindsym Shift+$mod+bracketleft move workspace to output left
