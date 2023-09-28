@@ -116,10 +116,10 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1 Browser 󰈹"
-set $ws2 "2"
+set $ws2 "2 Coding "
 set $ws3 "3 Terminal "
 set $ws4 "4 File manager "
-set $ws5 "5 Coding "
+set $ws5 "5"
 set $ws6 "6 Settings "
 set $ws7 "7"
 set $ws8 "8 Keepass 󰌆"
@@ -174,10 +174,10 @@ assign [class="Arandr"] $ws6
 assign [class="Grub-customizer"] $ws6
 assign [class="WhatSie"] $ws9
 assign [class="Thunar"] $ws4
-assign [class="unityhub"] $ws5
-assign [class="code-oss"] $ws5
-assign [class="jetbrains-rider"] $ws5
-assign [class="jetbrains-toolbox"] $ws5
+assign [class="unityhub"] $ws2
+assign [class="code-oss"] $ws2
+assign [class="jetbrains-rider"] $ws2
+assign [class="jetbrains-toolbox"] $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
