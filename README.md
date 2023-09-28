@@ -17,7 +17,7 @@ git submodule update --init --recursive
 
 **Install using the install script (not tested yet)**
 
-Make the script executable if it's not already
+Make the script executable if it is not already
 ```shell
 sudo chmod +x ~/dotfiles/install.sh
 ```
