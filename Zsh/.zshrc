@@ -137,6 +137,7 @@ alias nvim="sudo -E nvim"
 alias clear="printf '\033[H\033[2J\033[3J'"
 alias please="sudo"
 alias clean="yay -Scc && yay -Rns $(yay -Qtdq) && sudo rm -rf ~/.cache/*"
+alias ccd="cd && clear"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
