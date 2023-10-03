@@ -226,13 +226,14 @@ exec firefox
 exec discord
 exec flameshot
 exec whatsie
+
 #exec_always feh --randomize --bg-scale /home/nico/Pictures/Wallpapers/*
 exec_always feh --bg-fill /home/nico/Pictures/Wallpapers/arch.png
 
 # Transparency with picom compositor
 exec_always picom
 
-# Polybar launc script
+# Polybar launch script
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Open flameshot when clicking print screen
