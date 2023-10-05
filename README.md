@@ -3,8 +3,33 @@ Hello, welcome to my dotfiles!
 
 _This is my own Arch linux configuration, I hope you get some inspiration from this._
 
-**Installation**
+**Requirements**
+-
+- Arduino IDE -
+You can install it by doing ``sudo pacman -S arduino``
+- Discord -
+You can install it by doing ``sudo pacman -S discord``
+- Betterdiscord -
+You can install it using the AUR by doing ``yay -S betterdiscord-installer``
+- i3 -
+You can install it by doing ``sudo pacman -S i3-wm``
+- i3lock-color -
+You can install it by doing ``yay -S i3lock-color``
+- kitty -
+You can install it by doing ``sudo pacman -S kitty``
+- neovim -
+You can install it by doing ``sudo pacman -S neovim``
+- polybar -
+You can install it by doing ``sudo pacman -S polybar``
+- rofi -
+You can install it by doing ``sudo pacman -S rofi``
+- zsh -
+you can install it by doing ``sudo pacman -S zsh``
+- oh-my-zsh -
+Installation instructions can be found at ``https://github.com/ohmyzsh/ohmyzsh/``
 
+**Installation**
+-
 Clone the repo by doing:
 ```shell
 git clone --recursive https://github.com/superNWHG/dotfiles.git ~/dotfiles/
