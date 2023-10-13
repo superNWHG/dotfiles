@@ -225,7 +225,7 @@ exec keepass
 exec firefox
 exec discord
 exec flameshot
-exec whatsie
+exec whatsie -t
 
 #exec_always feh --randomize --bg-scale /home/nico/Pictures/Wallpapers/*
 exec_always feh --bg-fill /home/nico/Pictures/Wallpapers/arch.png

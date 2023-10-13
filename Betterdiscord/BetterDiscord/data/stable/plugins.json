@@ -1,8 +1,8 @@
 {
-    "ReadAllNotificationsButton": true,
     "BDFDB": true,
-    "BetterAnimations": false,
     "ZeresPluginLibrary": true,
+    "BetterAnimations": false,
+    "ReadAllNotificationsButton": true,
     "TypingIndicator": true,
     "PrettyFolders": true
 }
