@@ -27,6 +27,8 @@ You can install it by doing ``sudo pacman -S rofi``
 you can install it by doing ``sudo pacman -S zsh``
 - oh-my-zsh -
 Installation instructions can be found at ``https://github.com/ohmyzsh/ohmyzsh/``
+- feh -
+You can install it by doing ``sudo pacman -S feh``
 
 **Installation**
 -
