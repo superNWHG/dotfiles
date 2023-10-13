@@ -108,7 +108,7 @@ For oh my zsh do:
 ```shell
 sudo rm -rf ~/.oh-my-zsh/custom/
 ```
-_IMPORTANT: do not create a symlink for oh my zsh because it will lead to update failures._
+IMPORTANT: _do not create a symlink for oh my zsh because it will lead to update failures._
 
 For powerlevel10k do:
 ```shell
