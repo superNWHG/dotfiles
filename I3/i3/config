@@ -178,6 +178,7 @@ assign [class="unityhub"] $ws2
 assign [class="code-oss"] $ws2
 assign [class="jetbrains-rider"] $ws2
 assign [class="jetbrains-toolbox"] $ws2
+assign [class="Bootstrap Studio"] $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
