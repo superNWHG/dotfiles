@@ -135,7 +135,6 @@ zstyle ':completion*:descriptions' format '[%d]'
 # aliasses
 alias nvim="sudo -E nvim"
 alias clear="printf '\033[H\033[2J\033[3J'"
-alias please="sudo"
 alias clean="yay -Scc && yay -Rns $(yay -Qtdq) && sudo rm -rf ~/.cache/*"
 alias ccd="cd && clear"
 
