@@ -229,7 +229,7 @@ exec flameshot
 exec whatsie -t
 
 #exec_always feh --randomize --bg-scale /home/nico/Pictures/Wallpapers/*
-exec_always feh --bg-fill /home/nico/Pictures/Wallpapers/arch.png
+exec_always feh --bg-fill ~/Pictures/Wallpapers/arch.png
 
 # Transparency with picom compositor
 exec_always picom
