@@ -116,4 +116,4 @@ sudo rm -rf ~/.p10k.zsh/
 ln -s ~/dotfiles/Zsh/.p10k.zsh ~/
 ```
 
-I'm currently working on hyprland, so more config files coming soon!
+I'm currently working on hyprland, so everything is currently being tested.
