@@ -1,9 +1,10 @@
 {
     "BDFDB": true,
-    "ZeresPluginLibrary": false,
+    "ZeresPluginLibrary": true,
     "BetterAnimations": false,
     "ReadAllNotificationsButton": true,
     "TypingIndicator": true,
     "PrettyFolders": true,
-    "FreeEmojis": true
+    "FreeEmojis": true,
+    "ShowHiddenChannels": false
 }
