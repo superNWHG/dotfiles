@@ -2,7 +2,7 @@
  * @name BDFDB
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 3.4.4
+ * @version 3.4.7
  * @description Required Library for DevilBro's Plugins
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -1379,7 +1379,7 @@ module.exports = (_ => {
 						let amount = stringified.split(":\"").length - 1;
 						return (!config.length || (config.smaller ? amount < config.length : amount == config.length)) && [props].flat(10).every(string => stringified.indexOf(`${string}:`) > -1) && m;
 					}, {onlySearchUnloaded: true, all: config.all, defaultExport: config.defaultExport});
-					if (!config.all && secondReturn) return secondReturn;
+					if (!config.all) return secondReturn;
 					return BDFDB.ArrayUtils.removeCopies([firstReturn].concat(secondReturn).flat(10));
 				};
 				
@@ -2010,8 +2010,8 @@ module.exports = (_ => {
 										children: [
 											BDFDB.ReactUtils.createElement(Internal.LibraryComponents.GuildBadge, {
 												guild: config.guild,
-												size: BDFDB.StringUtils.cssValueToNumber(Internal.DiscordClassModules.TooltipGuild.iconSize),
-												className: BDFDB.disCN.tooltiprowicon
+												size: 16,
+												className: BDFDB.disCN.tooltiprowiconv2
 											}),
 											BDFDB.ReactUtils.createElement("span", {
 												className: BDFDB.DOMUtils.formatClassName(BDFDB.disCN.tooltipguildnametext),
@@ -5013,7 +5013,7 @@ module.exports = (_ => {
 							children: [
 								!this.props.noRemove ? BDFDB.ReactUtils.createElement(Internal.LibraryComponents.Clickable, {
 									"aria-label": BDFDB.LanguageUtils.LanguageStrings.REMOVE,
-									className: BDFDB.disCNS.hovercardremovebutton + BDFDB.disCN.hovercardremovebuttondefault,
+									className: BDFDB.disCNS.hovercardbutton + BDFDB.disCNS.hovercardremovebutton + BDFDB.disCN.hovercardremovebuttondefault,
 									onClick: e => {
 										if (typeof this.props.onRemove == "function") this.props.onRemove(e, this);
 										BDFDB.ListenerUtils.stopEvent(e);
@@ -6232,12 +6232,12 @@ module.exports = (_ => {
 						if (!guild) return BDFDB.ReactUtils.createElement("div", {
 							className: BDFDB.disCN.guildsummaryemptyguild
 						});
-						let icon = BDFDB.ReactUtils.createElement(Internal.LibraryComponents.GuildIconComponents.Icon, {
+						let icon = BDFDB.ReactUtils.createElement(Internal.LibraryComponents.GuildIcon, {
 							className: BDFDB.disCN.guildsummaryicon,
 							guild: guild,
 							showTooltip: this.props.showTooltip,
 							tooltipPosition: "top",
-							size: Internal.LibraryComponents.GuildIconComponents.Icon.Sizes.SMALLER
+							size: Internal.LibraryComponents.GuildIcon.Sizes.SMALLER
 						});
 						return this.props.switchOnClick ? BDFDB.ReactUtils.createElement(Internal.LibraryComponents.Clickable, {
 							className: BDFDB.disCN.guildsummaryclickableicon,
@@ -6989,7 +6989,9 @@ module.exports = (_ => {
 								autoFocus: this.props.autoFocus ? this.props.autoFocus : false,
 								maxVisibleItems: this.props.maxVisibleItems || 7,
 								renderOptionLabel: this.props.optionRenderer,
-								onChange: this.handleChange.bind(this)
+								select: this.handleChange.bind(this),
+								serialize: typeof this.props.serialize == "function" ? this.props.serialize : _ => {},
+								isSelected: typeof this.props.isSelected == "function" ? this.props.isSelected : (value => this.props.value == value)
 							}), "inputClassName", "optionRenderer"))
 						});
 					}
@@ -7005,9 +7007,9 @@ module.exports = (_ => {
 								text: guild.name,
 								children: BDFDB.ReactUtils.createElement("div", {
 									className: BDFDB.DOMUtils.formatClassName(this.props.guildClassName, BDFDB.disCN.settingsguild, this.props.disabled.includes(guild.id) && BDFDB.disCN.settingsguilddisabled),
-									children: BDFDB.ReactUtils.createElement(Internal.LibraryComponents.GuildIconComponents.Icon, {
+									children: BDFDB.ReactUtils.createElement(Internal.LibraryComponents.GuildIcon, {
 										guild: guild,
-										size: this.props.size || Internal.LibraryComponents.GuildIconComponents.Icon.Sizes.MEDIUM
+										size: this.props.size || Internal.LibraryComponents.GuildIcon.Sizes.MEDIUM
 									}),
 									onClick: e => {
 										let isDisabled = this.props.disabled.includes(guild.id);
@@ -7724,7 +7726,7 @@ module.exports = (_ => {
 					render() {
 						let inputChildren = [
 							BDFDB.ReactUtils.createElement("input", BDFDB.ObjectUtils.exclude(Object.assign({}, this.props, {
-								className: BDFDB.DOMUtils.formatClassName(this.props.size && Internal.LibraryComponents.TextInput.Sizes[this.props.size.toUpperCase()] && BDFDB.disCN["input" + this.props.size.toLowerCase()] || BDFDB.disCN.inputdefault, this.props.inputClassName, this.props.focused && BDFDB.disCN.inputfocused, this.props.error || this.props.errorMessage ? BDFDB.disCN.inputerror : (this.props.success && BDFDB.disCN.inputsuccess), this.props.disabled && BDFDB.disCN.inputdisabled, this.props.editable && BDFDB.disCN.inputeditable),
+								className: BDFDB.DOMUtils.formatClassName(this.props.size || BDFDB.disCN.inputdefault, this.props.inputClassName, this.props.focused && BDFDB.disCN.inputfocused, this.props.error || this.props.errorMessage ? BDFDB.disCN.inputerror : (this.props.success && BDFDB.disCN.inputsuccess), this.props.disabled && BDFDB.disCN.inputdisabled, this.props.editable && BDFDB.disCN.inputeditable),
 								type: this.props.type == "color" || this.props.type == "file" ? "text" : this.props.type,
 								onChange: this.handleChange.bind(this),
 								onInput: this.handleInput.bind(this),
