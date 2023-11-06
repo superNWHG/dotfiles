@@ -237,7 +237,7 @@ exec_always picom
 # Polybar launch script
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Open flameshot when clicking print screen
+# Open gnome-screenshot when clicking print screen
 bindsym Print exec gnome-screenshot -i
 
 # Disable blue bar at the top of the window
