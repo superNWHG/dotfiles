@@ -1,4 +1,4 @@
-# dotfiles
+# Dotfiles
 Hello, welcome to my dotfiles!
 
 _This is my own Arch linux configuration, I hope you get some inspiration from this._
