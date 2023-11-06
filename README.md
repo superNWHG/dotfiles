@@ -3,7 +3,7 @@ Hello, welcome to my dotfiles!
 
 _This is my own Arch linux configuration, I hope you get some inspiration from this._
 
-**Requirements**
+**Requirements for i3**
 -
 - Arduino IDE -
 You can install it by doing ``sudo pacman -S arduino``
@@ -30,6 +30,34 @@ Installation instructions can be found [here](https://github.com/ohmyzsh/ohmyzsh
 - feh -
 You can install it by doing ``sudo pacman -S feh``
 
+**Requirements for hyprland**
+-
+- Arduino IDE -
+You can install it by doing ``sudo pacman -S arduino``
+- Discord -
+You can install it by doing ``sudo pacman -S discord``
+- Betterdiscord -
+You can install it using the AUR by doing ``yay -S betterdiscord-installer``
+- hyprland -
+You can install it by doing ``sudo pacman -S hyprland``
+- swaylock-effects -
+You can install it by doing ``yay -S swaylock-effects``
+- kitty -
+You can install it by doing ``sudo pacman -S kitty``
+- neovim -
+You can install it by doing ``sudo pacman -S neovim``
+- polybar -
+You can install it by doing ``sudo pacman -S polybar``
+- rofi -
+You can install it by doing ``sudo pacman -S rofi``
+- zsh -
+you can install it by doing ``sudo pacman -S zsh``
+- oh-my-zsh -
+Installation instructions can be found [here](https://github.com/ohmyzsh/ohmyzsh/)
+- feh -
+You can install it by doing ``sudo pacman -S feh``
+
+
 **Installation**
 -
 Clone the repo by doing:
@@ -46,14 +74,18 @@ git submodule update --init --recursive
 
 Make the script executable if it is not already
 ```shell
-sudo chmod +x ~/dotfiles/install.sh
+sudo chmod +x ~/dotfiles/install-i3.sh && sudo chmod +x ~/dotfiles/install-hyprland.sh
 ```
 
-Execute the install script
+If you want to install i3 do:
 ```shell
-./~/dotfiles/install.sh
+./~/dotfiles/install-i3.sh
 ```
 
+If you want to install hyprland do:
+```shell
+./~/dotfiles/install-hyprland.sh
+```
 
 
 **Manual Installation**
