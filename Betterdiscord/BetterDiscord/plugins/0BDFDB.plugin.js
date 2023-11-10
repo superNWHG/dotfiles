@@ -2,7 +2,7 @@
  * @name BDFDB
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 3.4.7
+ * @version 3.5.3
  * @description Required Library for DevilBro's Plugins
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -27,7 +27,9 @@ module.exports = (_ => {
 	BDFDB = {
 		started: true,
 		changeLog: {
-			
+			fixed: {
+				"Special Characters": "Fixed an Issue, which caused downloaded Files (for example Plugins downloaded via Plugin Repo) to have their special characters (polish, chinese, etc. letters) get corrupted"
+			}
 		}
 	};
 	
@@ -154,9 +156,9 @@ module.exports = (_ => {
 			};
 
 			const requestFunction = function (...args) {
-				let {url, uIndex} = args[0] && typeof args[0] == "string" ? {url: args[0], uIndex: 0} : (args[1] && typeof args[1] == "object" && typeof args[1].url == "string" ? {url: args[1], uIndex: 1} : {url: null, uIndex: -1});
-				if (!url || typeof url != "string") return;
-				let {callback, cIndex} = args[1] && typeof args[1] == "function" ? {callback: args[1], cIndex: 1} : (args[2] && typeof args[2] == "function" ? {callback: args[2], cIndex: 2} : {callback: null, cIndex: -1});
+				let url = typeof args[0] == "string" && args[0];
+				if (!url) return;
+				let callback = typeof args[1] == "function" && args[1] || typeof args[2] == "function" && args[2];
 				if (typeof callback != "function") return;
 				if (url.indexOf("data:") == 0) callback(null, {
 					aborted: false,
@@ -170,15 +172,14 @@ module.exports = (_ => {
 					url: ""
 				}, url);
 				else {
-					let config = args[0] && typeof args[0] == "object" ? args[0] : (args[1] && typeof args[1] == "object" && args[1]);
+					let config = args[1] && typeof args[1] == "object" ? args[1] : {};
 					let timeout = 600000;
-					if (config && config.url) delete config.url;
-					if (config && config.form && typeof config.form == "object") {
+					if (!isNaN(parseInt(config.timeout)) && config.timeout > 0) timeout = config.timeout;
+					if (config.form && typeof config.form == "object") {
 						let query = Object.entries(config.form).map(n => n[0] + "=" + n[1]).join("&");
 						if (query) url += `?${query}`;
 					}
-					if (config && !isNaN(parseInt(config.timeout)) && config.timeout > 0) timeout = config.timeout;
-					if (config && config.method) config.method = config.method.toUpperCase();
+					if (config.method) config.method = config.method.toUpperCase();
 					let killed = false, timeoutObj = BDFDB.TimeUtils.timeout(_ => {
 						killed = true;
 						BDFDB.TimeUtils.clear(timeoutObj);
@@ -194,15 +195,29 @@ module.exports = (_ => {
 							url: ""
 						}, null);
 					}, timeout);
-					let response = null;
-					return (config && config.bdVersion && BdApi && BdApi.Net && BdApi.Net.fetch ? BdApi.Net.fetch : fetch)(url, Object.assign({}, config, {timeout: 60000})).then(r => {
+					let response = null, isFallback = false;
+					return (config.bdVersion && BdApi && BdApi.Net && BdApi.Net.fetch ? BdApi.Net.fetch : fetch)(url, config).catch(error => {
+						if (!config.bdVersion) return requestFunction(url, Object.assign({}, config, {bdVersion: true}), callback);
+						else callback(new Error(error), {
+							aborted: false,
+							complete: true,
+							end: undefined,
+							headers: {},
+							method: null,
+							rawHeaders: [],
+							statusCode: 408,
+							statusMessage: "OK",
+							url: ""
+						}, null);
+					}).then(r => {
 						response = r;
+						if (!response) return;
 						response.statusCode = response.status;
 						if (response.headers) response.headers["content-type"] = response.headers.get("content-type");
 						BDFDB.TimeUtils.clear(timeoutObj);
-						return response.text();
+						return config.toBuffer ? response.arrayBuffer() : response.text();
 					}).then(body => {
-						if (!killed) callback(response.status != 200 ? new Error(response.statusText || "Fetch Failed") : null, response, body);
+						if (!killed && response) callback(response.status != 200 ? new Error(response.statusText || "Fetch Failed") : null, response, body);
 					});
 				}
 			};
@@ -336,6 +351,11 @@ module.exports = (_ => {
 					found = found[value];
 				}
 				return found;
+			};
+			BDFDB.ObjectUtils.invert = function (obj) {
+				let newObj = {};
+				if (BDFDB.ObjectUtils.is(obj)) for (let entry of Object.entries(obj)) newObj[entry[1]] = entry[0];
+				return newObj;
 			};
 			BDFDB.ObjectUtils.extract = function (obj, ...keys) {
 				let newObj = {};
@@ -1375,7 +1395,7 @@ module.exports = (_ => {
 					let secondReturn = BDFDB.ModuleUtils.find(m => {
 						if (typeof m != "function") return false;
 						let stringified = m.toString().replace(/\s/g, "");
-						if (stringified.indexOf("e=>{e.exports={") != 0 && stringified.indexOf("function(e,t,o){\"usestrict\";e.exports={") != 0) return false;
+						if (stringified.indexOf(".exports={") == -1 || !/function\([A-z],[A-z],[A-z]\)\{"usestrict";[A-z]\.exports=\{/.test(stringified)) return false;
 						let amount = stringified.split(":\"").length - 1;
 						return (!config.length || (config.smaller ? amount < config.length : amount == config.length)) && [props].flat(10).every(string => stringified.indexOf(`${string}:`) > -1) && m;
 					}, {onlySearchUnloaded: true, all: config.all, defaultExport: config.defaultExport});
@@ -1383,9 +1403,11 @@ module.exports = (_ => {
 					return BDFDB.ArrayUtils.removeCopies([firstReturn].concat(secondReturn).flat(10));
 				};
 				
+				const DiscordConstantsObject = BDFDB.ModuleUtils.findByProperties("AnalyticsSections", "ChannelTypes", "MessageTypes");
+				if (InternalData.CustomDiscordConstants) DiscordConstants = Object.assign(DiscordConstants, InternalData.CustomDiscordConstants);
+				if (DiscordConstantsObject) DiscordConstants = Object.assign(DiscordConstants, DiscordConstantsObject);
 				Internal.DiscordConstants = new Proxy(DiscordConstants, {
 					get: function (_, item) {
-						if (InternalData.CustomDiscordConstants && InternalData.CustomDiscordConstants[item]) return InternalData.CustomDiscordConstants[item];
 						if (DiscordConstants[item]) return DiscordConstants[item];
 						if (!InternalData.DiscordConstants[item]) {
 							BDFDB.LogUtils.warn([item, "Object not found in DiscordConstants"]);
@@ -2493,9 +2515,36 @@ module.exports = (_ => {
 				});
 				BDFDB.LibraryModules = Internal.LibraryModules;
 				
-				if (Internal.LibraryModules.KeyCodeUtils && InternalData.LibraryModules.KeyCodeUtils._originalModule) InternalData.LibraryModules.KeyCodeUtils._originalModule.getString = function (keyArray) {
-					return Internal.LibraryModules.KeyCodeUtils.toName([keyArray].flat(10).filter(n => n).map(keyCode => [Internal.DiscordConstants.KeyboardDeviceTypes.KEYBOARD_KEY, Internal.LibraryModules.KeyCodeUtils.keyToCode((Object.entries(Internal.LibraryModules.KeyEvents.codes).find(n => n[1] == keyCode && Internal.LibraryModules.KeyCodeUtils.keyToCode(n[0], null)) || [])[0], null) || keyCode]), true);
-				};
+				if (Internal.LibraryModules.KeyCodeUtils) {
+					let originalModule = LibraryModules.KeyCodeUtils;
+					LibraryModules.KeyCodeUtils = new Proxy(originalModule, {
+						get: function (_, item) {
+							if (item == "getString") return getString;
+							else if (item == "_originalModule") return originalModule;
+							else if (originalModule[item]) return originalModule[item];
+							else return null;
+						}
+					});
+					
+					let codeMap = BDFDB.ObjectUtils.invert(Internal.LibraryModules.PlatformUtils.isLinux() ? Internal.DiscordConstants.LinuxKeyToCode : Internal.LibraryModules.PlatformUtils.isMac() ? Internal.DiscordConstants.MacosKeyToCode : Internal.LibraryModules.PlatformUtils.isWindows() ? Internal.DiscordConstants.WindowsKeyToCode : {});
+					let keyMap = [["META", "⌘"], ["RIGHT META", "RIGHT ⌘"], ["SHIFT", "⇧"], ["RIGHT SHIFT", "RIGHT ⇧"], ["ALT", "⌥"], ["RIGHT ALT", "RIGHT ⌥"], ["CTRL", "⌃"], ["RIGHT CTRL", "RIGHT ⌃"], ["ENTER", "↵"], ["BACKSPACE", "⌫"], ["DEL", "⌦"], ["ESC", "⎋"], ["PAGEUP", "⇞"], ["PAGEDOWN", "⇟"], ["UP", "↑"], ["DOWN", "↓"], ["LEFT", "←"], ["RIGHT", "→"], ["HOME", "↖"], ["END", "↘"], ["TAB", "⇥"], ["SPACE", "␣"]];
+					let mapKeys = key => {
+						let upperCaseKey = key.toUpperCase();
+						for (let [name, mappedKey] of mapKeys) if (name === upperCaseKey) return mappedKey;
+						return key;
+					};
+					const getString = function (keyArray, upperCase = true) {
+						let strings = [keyArray].flat(10).filter(n => n).map(keyCode => {
+							let code = Internal.LibraryModules.KeyCodeUtils.keyToCode((Object.entries(Internal.LibraryModules.KeyEvents.codes).find(n => n[1] == keyCode && Internal.LibraryModules.KeyCodeUtils.keyToCode(n[0], null)) || [])[0], null) || keyCode;
+							return codeMap[code] || "UNK".concat(code)
+						}).filter(n => n != null);
+						if (!upperCase) return strings.join("+"); 
+						else {
+							strings = window.navigator.appVersion.indexOf("Mac OS X") != -1 ? strings.map(mapKeys) : strings;
+							return strings.join(" + ").toUpperCase();
+						}
+					};
+				}
 				
 				const MyReact = {};
 				MyReact.childrenToArray = function (parent) {
@@ -2914,7 +2963,7 @@ module.exports = (_ => {
 					BDFDB.ReactUtils.unmountComponentAtNode(tempNode);
 					return returnValue;
 				};
-				BDFDB.ReactUtils = new Proxy(LibraryModules, {
+				BDFDB.ReactUtils = new Proxy({}, {
 					get: function (_, item) {
 						if (MyReact[item]) return MyReact[item];
 						else if (LibraryModules.React[item]) return LibraryModules.React[item];
@@ -3139,7 +3188,7 @@ module.exports = (_ => {
 						else {
 							if (ChannelsIns && ChannelsIns.props && ChannelsIns.props.guildChannels.categories && Object.keys(ChannelsIns.props.guildChannels.categories).length) {
 								let category = ChannelsIns.props.guildChannels.categories[Object.keys(ChannelsIns.props.guildChannels.categories)[0]];
-								category.isCollapsed ? BDFDB.LibraryModules.CategoryCollapseUtils.collapse(category.id) : BDFDB.LibraryModules.CategoryCollapseUtils.expand(category.id);
+								category.isCollapsed ? BDFDB.LibraryModules.CategoryCollapseUtils.categoryCollapse(category.id) : BDFDB.LibraryModules.CategoryCollapseUtils.categoryExpand(category.id);
 							}
 							else {
 								let ChannelsPrototype = BDFDB.ObjectUtils.get(ChannelsIns, `${BDFDB.ReactUtils.instanceKey}.type.prototype`);
@@ -4017,7 +4066,7 @@ module.exports = (_ => {
 							else if (BDFDB.ArrayUtils.is(children[i])) {
 								for (let j in children[i]) if (check(children[i][j])) return [children[i], parseInt(j)];
 							}
-							else if (children[i].props) {
+							else if (children[i].props && children[i].props.children) {
 								if (BDFDB.ArrayUtils.is(children[i].props.children) && children[i].props.children.length) {
 									let [possibleChildren, possibleIndex] = BDFDB.ContextMenuUtils.findItem(children[i].props.children, config);
 									if (possibleIndex > -1) return [possibleChildren, possibleIndex];
@@ -4027,6 +4076,19 @@ module.exports = (_ => {
 									else {
 										children[i].props.children = [children[i].props.children];
 										return [children[i].props.children, 0];
+									}
+								}
+								else if (children[i].props.children.props && children[i].props.children.props.children) {
+									if (BDFDB.ArrayUtils.is(children[i].props.children.props.children) && children[i].props.children.props.children.length) {
+										let [possibleChildren, possibleIndex] = BDFDB.ContextMenuUtils.findItem(children[i].props.children.props.children, config);
+										if (possibleIndex > -1) return [possibleChildren, possibleIndex];
+									}
+									else if (check(children[i].props.children.props.children)) {
+										if (config.group) return [children, parseInt(i)];
+										else {
+											children[i].props.children.props.children = [children[i].props.children.props.children];
+											return [children[i].props.children.props.children, 0];
+										}
 									}
 								}
 							}
@@ -4201,151 +4263,6 @@ module.exports = (_ => {
 				};
 				
 				BDFDB.DiscordUtils = {};
-				var getFileData = (...args) => {
-					var p = function (e, t, n, r, i, o, a) {
-						try {
-							var s = e[o](a),
-							u = s.value;
-						} catch (e) {
-							n(e);
-							return;
-						}
-						s.done ? t(u) : Promise.resolve(u).then(r, i);
-					};
-					var E = function (e) {
-						return function () {
-							var t = this,
-							n = arguments;
-							return new Promise((function (r, i) {
-								var o = e.apply(t, n);
-								function a(e) {
-									p(o, r, i, a, s, "next", e);
-								}
-								function s(e) {
-									p(o, r, i, a, s, "throw", e);
-								}
-								a(void 0);
-							}));
-						};
-					};
-					return E(function (e) {
-						const v = function (e, t) {		
-							var s = function (o) {
-								return function (s) {
-									return function (o) {
-										if (n) throw new TypeError("Generator is already executing.");
-										for (; a; ) try {
-											if (n = 1, r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done) return i;
-											(r = 0, i) && (o = [2 & o[0], i.value]);
-											switch (o[0]) {
-												case 0:
-												case 1:
-													i = o;
-													break;
-												case 4:
-													a.label++;
-													return {
-														value: o[1],
-														done: !1
-													};
-												case 5:
-													a.label++;
-													r = o[1];
-													o = [0];
-													continue;
-												case 7:
-													o = a.ops.pop();
-													a.trys.pop();
-													continue;
-												default:
-													if (!(i = a.trys, i = i.length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
-														a = 0;
-														continue;
-													}
-													if (3 === o[0] && (!i || o[1] > i[0] && o[1] < i[3])) {
-														a.label = o[1];
-														break;
-													}
-													if (6 === o[0] && a.label < i[1]) {
-														a.label = i[1];
-														i = o;
-														break;
-													}
-													if (i && a.label < i[2]) {
-														a.label = i[2];
-														a.ops.push(o);
-														break;
-													}
-													i[2] && a.ops.pop();
-													a.trys.pop();
-													continue;
-											}
-											o = t.call(e, a);
-										} catch (e) {
-											o = [6, e];
-											r = 0;
-										} finally {
-											n = i = 0;
-										}
-										if (5 & o[0]) throw o[1];
-										return {
-											value: o[0] ? o[1] : void 0,
-											done: !0
-										}
-									}([o, s])
-								}
-							}
-							
-							var n, r, i, o;
-							var a = {
-								label: 0,
-								sent: function () {
-									if (1 & i[0])
-										throw i[1];
-									return i[1]
-								},
-								trys: [],
-								ops: []
-							};
-							return o = {
-								next: s(0),
-								throw : s(1),
-								return : s(2)
-							}, "function" == typeof Symbol && (o[Symbol.iterator] = function () {
-								return this
-							}), o;
-						};
-						return v(this, (function (r) {
-							var t, n;
-							switch (r.label) {
-							case 0:
-								return [4, fetch(new Request(e, {
-									method: "GET",
-									mode: "cors"
-								}))];
-							case 1:
-								t = r.sent();
-								return [4, t.arrayBuffer()];
-							case 2:
-								n = r.sent();
-								return [2, n]
-							}
-						}));
-					}).apply(this, args);
-				};
-				BDFDB.DiscordUtils.requestFileData = function (...args) {
-					let {url, uIndex} = args[0] && typeof args[0] == "string" ? {url: args[0], uIndex: 0} : (args[1] && typeof args[1] == "object" && typeof args[1].url == "string" ? {url: args[1], uIndex: 1} : {url: null, uIndex: -1});
-					if (!url || typeof url != "string") return;
-					let {callback, cIndex} = args[1] && typeof args[1] == "function" ? {callback: args[1], cIndex: 1} : (args[2] && typeof args[2] == "function" ? {callback: args[2], cIndex: 2} : {callback: null, cIndex: -1});
-					if (typeof callback != "function") return;
-					getFileData(url).then(buffer => callback(null, buffer)).catch(error => callback(error, null));
-				};
-				BDFDB.DiscordUtils.bufferToString = function (u8a) {
-					u8a = new Uint8Array(u8a);
-					let CHUNK_SZ = 0x8000, c = [];
-					for (let i = 0; i < u8a.length; i += CHUNK_SZ) c.push(String.fromCharCode.apply(null, u8a.subarray(i, i + CHUNK_SZ)));
-					return c.join("");
-				};
 				BDFDB.DiscordUtils.getSetting = function (category, key) {
 					if (!category || !key) return;
 					return BDFDB.LibraryStores.UserSettingsProtoStore && BDFDB.LibraryStores.UserSettingsProtoStore.settings[category] && BDFDB.LibraryStores.UserSettingsProtoStore.settings[category][key] && BDFDB.LibraryStores.UserSettingsProtoStore.settings[category][key].value;
@@ -6188,7 +6105,7 @@ module.exports = (_ => {
 									onChange: e => {
 										let file = e.currentTarget.files[0];
 										if (this.refInput && file && (!filter.length || filter.some(n => file.type.indexOf(n) == 0))) {
-											this.refInput.props.value = this.props.searchFolders ? file.path.split(file.name).slice(0, -1).join(file.name) : `${this.props.mode == "url" ? "url('" : ""}${(this.props.useFilePath) ? file.path : `data:${file.type};base64,${btoa(BDFDB.DiscordUtils.bufferToString(Internal.LibraryRequires.fs.readFileSync(file.path, "")))}`}${this.props.mode ? "')" : ""}`;
+											this.refInput.props.value = this.props.searchFolders ? file.path.split(file.name).slice(0, -1).join(file.name) : `${this.props.mode == "url" ? "url('" : ""}${(this.props.useFilePath) ? file.path : `data:${file.type};base64,${Internal.LibraryRequires.fs.readFileSync(file.path, "base64")}`}${this.props.mode ? "')" : ""}`;
 											BDFDB.ReactUtils.forceUpdate(this.refInput);
 											this.refInput.handleChange(this.refInput.props.value);
 										}
@@ -7676,6 +7593,7 @@ module.exports = (_ => {
 								if (ele) {
 									ele.style.setProperty("background-image", this.props.gradient, "important");
 									ele.style.setProperty("color", "transparent", "important");
+									ele.style.setProperty("text-decoration-color", BDFDB.ColorUtils.convert(this.props.gradient[0], "RGBA"), "important");
 									ele.style.setProperty("-webkit-background-clip", "text", "important");
 								}
 							}
@@ -8082,14 +8000,15 @@ module.exports = (_ => {
 					before: [
 						"BlobMask",
 						"EmojiPickerListRow",
+						"MemberListItem",
 						"Menu",
 						"MessageActionsContextMenu",
 						"MessageHeader",
+						"NameContainer",
 						"SearchBar"
 					],
 					after: [
 						"DiscordTag",
-						"MemberListItem",
 						"UseCopyIdItem",
 						"UserPopoutAvatar"
 					],
@@ -8284,8 +8203,25 @@ module.exports = (_ => {
 				Internal.processEmojiPickerListRow = function (e) {
 					if (e.instance.props.emojiDescriptors && Internal.LibraryComponents.EmojiPickerButton.current && Internal.LibraryComponents.EmojiPickerButton.current.props && Internal.LibraryComponents.EmojiPickerButton.current.props.allowManagedEmojisUsage) for (let i in e.instance.props.emojiDescriptors) e.instance.props.emojiDescriptors[i] = Object.assign({}, e.instance.props.emojiDescriptors[i], {isDisabled: false});
 				};
+				var memberStore = {};
 				Internal.processMemberListItem = function (e) {
-					e.returnvalue.props.avatar = Internal._processAvatarRender(e.instance.props.user, e.returnvalue.props.avatar) || e.returnvalue.props.avatar;
+					if (!memberStore || !memberStore.channel || memberStore.channel.id != e.instance.props.channel.id) memberStore = {channel: e.instance.props.channel, members: {}};
+					let src = BDFDB.UserUtils.getAvatar(e.instance.props.user.id);
+					if (!src) return;
+					memberStore.members[(src.split(".com")[1] || src).split("/").slice(0, 3).join("/").split(".")[0] + " " + e.instance.props.user.username] = e.instance.props.user;
+				};
+				Internal.processNameContainer = function (e) {
+					if (e.instance.props.innerClassName != BDFDB.disCN.memberinner || !memberStore || !memberStore.members) return;
+					let avatar = BDFDB.ReactUtils.findChild(e.instance.props.avatar, {props: ["src"]});
+					if (!avatar) return;
+					let src = avatar.props._originalSrc || avatar.props.src;
+					if (!src) return;
+					src = (src.split(".com")[1] || src).split("/").slice(0, 3).join("/").split(".")[0];
+					let username = avatar.props["aria-label"];
+					if (!memberStore.members[src + " " + username]) return;
+					e.instance.props.user = memberStore.members[src + " " + username];
+					e.instance.props.channel = memberStore.channel;
+					e.instance.props.avatar = Internal._processAvatarRender(e.instance.props.user, e.instance.props.avatar) || e.instance.props.avatar;
 				};
 				Internal.processMenu = function (e) {
 					if (e.instance.props && (!e.instance.props.children || BDFDB.ArrayUtils.is(e.instance.props.children) && !e.instance.props.children.length)) Internal.LibraryModules.ContextMenuUtils.closeContextMenu();

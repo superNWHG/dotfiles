@@ -2,9 +2,10 @@
     "BDFDB": true,
     "ZeresPluginLibrary": true,
     "BetterAnimations": false,
+    "FreeEmojis": true,
     "ReadAllNotificationsButton": true,
+    "ShowHiddenChannels": false,
     "TypingIndicator": true,
     "PrettyFolders": true,
-    "FreeEmojis": true,
-    "ShowHiddenChannels": false
+    "NitroPerks": true
 }
