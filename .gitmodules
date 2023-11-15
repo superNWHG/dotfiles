@@ -16,3 +16,6 @@
 [submodule "Zsh/custom/themes/powerlevel10k"]
 	path = Zsh/custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "alacritty/themes"]
+	path = alacritty/themes
+	url = https://github.com/alacritty/alacritty-theme.git

@@ -16,9 +16,9 @@ ln -s ~/dotfiles/Betterdiscord/BetterDiscord/ ~/.config/ >~/dotfiles/debug.log/
 sudo rm -rf ~/.config/hypr/ >~/dotfiles/debug.log/
 ln -s ~/dotfiles/Hyprland/hypr/ ~/.config/ >~/dotfiles/debug.log/
 
-# Install kitty
-sudo rm -rf ~/.config/kitty/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/kitty/ ~/.config/ >~/dotfiles/debug.log/
+# Install alacritty
+sudo rm -rf ~/.config/alacritty/ >~/dotfiles/debug.log/
+ln -s ~/dotfiles/alacritty/ ~/.config/ >~/dotfiles/debug.log/
 
 # Install neovim
 sudo rm -rf ~/.config/nvim/ >~/dotfiles/debug.log/
