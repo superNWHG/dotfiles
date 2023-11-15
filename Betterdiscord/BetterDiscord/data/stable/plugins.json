@@ -3,9 +3,9 @@
     "ZeresPluginLibrary": true,
     "BetterAnimations": false,
     "FreeEmojis": true,
+    "NitroPerks": false,
     "ReadAllNotificationsButton": true,
     "ShowHiddenChannels": false,
     "TypingIndicator": true,
-    "PrettyFolders": true,
-    "NitroPerks": true
+    "PrettyFolders": true
 }

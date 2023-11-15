@@ -132,7 +132,7 @@ unset __conda_setup
 # commands at startup
 zstyle ':completion*:descriptions' format '[%d]'
 
-# let firefox use wayland
+# let firefox use wayland by default
 export MOZ_ENABLE_WAYLAND=1
 
 # aliasses
