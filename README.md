@@ -102,6 +102,8 @@ sudo rm -rf ~/.config/kitty/
 ln -s ~/dotfiles/Kitty/kitty/ ~/.config/
 ```
 
+**.zshrc, pacman.conf, rofi, wallpapers, arduino, oh my zsh and powerlevel10k are different.**
+
 For .zshrc do:
 ```shell
 sudo rm ~/.zshrc/
