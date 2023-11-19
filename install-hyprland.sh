@@ -48,12 +48,13 @@ ln -s ~/dotfiles/Scripts/scripts/ ~/ >~/dotfiles/debug.log/
 sudo rm -rf ~/Pictures/Wallpapers/ >~/dotfiles/debug.log/
 ln -s ~/dotfiles/Wallpapers/ ~/Pictures/ >~/dotfiles/debug.log/
 
-# Install zsh
+# Install .zshrc
 sudo rm -rf ~/.zshrc >~/dotfiles/debug.log/
 ln -s ~/dotfiles/Zsh/.zshrc ~/.zshrc >~/dotfiles/debug.log/
 
-# Install oh my zsh
-sudo rm -rf ~/.oh-my-zsh/custom/ >~/dotfiles/debug.log/
+# Install zsh plugins
+sudo rm -rf ~/.config/zsh >~/dotfiles/debug.log/
+ln -s ~/dotfiles/Zsh/zsh/ ~/.config/ >~/dotfiles/debug.log/
 
 # Install i3lock-color
 sudo rm -rf ~/.config/swaylock/ >~/dotfiles/debug.log/
