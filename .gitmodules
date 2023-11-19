@@ -19,3 +19,27 @@
 [submodule "alacritty/themes"]
 	path = alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme.git
+[submodule "Zsh/zsh/plugins/alias-tips"]
+	path = Zsh/zsh/plugins/alias-tips
+	url = https://github.com/djui/alias-tips
+[submodule "Zsh/zsh/plugins/fast-syntax-highlighting"]
+	path = Zsh/zsh/plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
+[submodule "Zsh/zsh/plugins/fzf-tab"]
+	path = Zsh/zsh/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab
+[submodule "Zsh/zsh/plugins/k"]
+	path = Zsh/zsh/plugins/k
+	url = https://github.com/supercrabtree/k
+[submodule "Zsh/zsh/plugins/zsh-archlinux"]
+	path = Zsh/zsh/plugins/zsh-archlinux
+	url = https://github.com/Junker/zsh-archlinux
+[submodule "Zsh/zsh/plugins/zsh-autosuggestions"]
+	path = Zsh/zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "Zsh/zsh/plugins/zsh-sudo"]
+	path = Zsh/zsh/plugins/zsh-sudo
+	url = https://github.com/none9632/zsh-sudo/
+[submodule "Zsh/zsh/themes/powerlevel10k"]
+	path = Zsh/zsh/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k

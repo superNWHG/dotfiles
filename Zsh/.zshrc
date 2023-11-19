@@ -8,39 +8,22 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# history settings
+export HISTFILE=~/.zsh_history
+export HISTSIZE=200000
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
 # Configure fzf-tab options
-#zstyle ':fzf-tab:*' prefix '·'  # The existing prefix configuration
-#zstyle ':fzf-tab:*' default-color $'\033[33m'  # Set to yellow
-
-# Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 2
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+zstyle ':completion*:descriptions' format '[%d]'
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -74,17 +57,19 @@ COMPLETION_WAITING_DOTS="%F{red}loading...%f"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/dotfiles/Zsh/custom/
+autoload -Uz compinit
+compinit -D
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions zsh-syntax-highlighting k sudo archlinux fzf-tab alias-tips)
+# Load plugins
+source ~/.config/zsh/plugins/k/k.sh
+source ~/.config/zsh/plugins/alias-tips/alias-tips.plugin.zsh
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.config/zsh/plugins/zsh-sudo/zsh-sudo.zsh
+source ~/.config/zsh/plugins/zsh-archlinux/archlinux.plugin.zsh
+source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
-source $ZSH/oh-my-zsh.sh
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
 
 # User configuration
 
@@ -102,15 +87,6 @@ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -130,7 +106,6 @@ unset __conda_setup
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # commands at startup
-zstyle ':completion*:descriptions' format '[%d]'
 
 # let firefox use wayland by default
 export MOZ_ENABLE_WAYLAND=1
@@ -140,6 +115,11 @@ alias nvim="sudo -E nvim"
 alias clear="printf '\033[H\033[2J\033[3J'"
 alias clean="yay -Scc && yay -Rns $(yay -Qtdq) && sudo rm -rf ~/.cache/*"
 alias ccd="cd && clear"
+
+precmd() {
+  print -Pn "\e]0; %~\a"
+}
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
