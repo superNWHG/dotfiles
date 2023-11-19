@@ -1,0 +1,5 @@
+return {
+  {
+    "ptzz/lf.vim",
+  },
+}
