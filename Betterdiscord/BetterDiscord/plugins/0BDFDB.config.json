@@ -1,7 +1,7 @@
 {
 	"all": {
 		"changeLogs": {
-			"BDFDB": "3.5.3",
+			"BDFDB": "3.5.4",
 			"ReadAllNotificationsButton": "1.7.5"
 		},
 		"choices": {
@@ -14,7 +14,7 @@
 			"useChromium": false
 		},
 		"hashes": {
-			"0BDFDB.data.json": "b6093b5b3b9b66f4ea01370fe723f0834b6739c4",
+			"0BDFDB.data.json": "26f067d2aa6361ef8fb05597be18b20dc18e16fd",
 			"0BDFDB.raw.css": "8c083e2a87a82aded5f3b2e27fb8b2f816b5f74a"
 		}
 	}
