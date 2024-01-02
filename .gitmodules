@@ -18,7 +18,7 @@
 	url = https://github.com/romkatv/powerlevel10k.git
 [submodule "alacritty/themes"]
 	path = alacritty/themes
-	url = https://github.com/alacritty/alacritty-theme.git
+	url = https://github.com/alacritty/alacritty-theme
 [submodule "Zsh/zsh/plugins/alias-tips"]
 	path = Zsh/zsh/plugins/alias-tips
 	url = https://github.com/djui/alias-tips
@@ -39,7 +39,7 @@
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "Zsh/zsh/plugins/zsh-sudo"]
 	path = Zsh/zsh/plugins/zsh-sudo
-	url = https://github.com/none9632/zsh-sudo/
+	url = https://github.com/none9632/zsh-sudo
 [submodule "Zsh/zsh/themes/powerlevel10k"]
 	path = Zsh/zsh/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k
