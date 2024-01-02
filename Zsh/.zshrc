@@ -14,8 +14,9 @@ source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 # CASE_SENSITIVE="true"
 
 # history settings
-export HISTFILE=~/.zsh_history
-export HISTSIZE=200000
+HISTFILE=~/.zsh_history
+HISTSIZE=2000
+SAVEHIST=10000
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -111,7 +112,7 @@ unset __conda_setup
 export MOZ_ENABLE_WAYLAND=1
 
 # aliasses
-alias nvim="sudo -E nvim"
+# alias nvim="sudo -E nvim"
 alias clear="printf '\033[H\033[2J\033[3J'"
 alias clean="yay -Scc && yay -Rns $(yay -Qtdq) && sudo rm -rf ~/.cache/*"
 alias ccd="cd && clear"
