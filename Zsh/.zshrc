@@ -108,9 +108,6 @@ unset __conda_setup
 
 # commands at startup
 
-# let firefox use wayland by default
-export MOZ_ENABLE_WAYLAND=1
-
 # aliasses
 # alias nvim="sudo -E nvim"
 alias clear="printf '\033[H\033[2J\033[3J'"
