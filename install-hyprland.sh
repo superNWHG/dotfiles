@@ -18,7 +18,7 @@ ln -s ~/dotfiles/Hyprland/hypr/ ~/.config/ >~/dotfiles/debug.log/
 
 # Install alacritty
 sudo rm -rf ~/.config/alacritty/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/alacritty/ ~/.config/ >~/dotfiles/debug.log/
+ln -s ~/dotfiles/Alacritty/alacritty/ ~/.config/ >~/dotfiles/debug.log/
 
 # Install neovim
 sudo rm -rf ~/.config/nvim/ >~/dotfiles/debug.log/
@@ -27,10 +27,6 @@ ln -s ~/dotfiles/Nvim/nvim/ ~/.config/ >~/dotfiles/debug.log/
 # Install pacman
 sudo rm /etc/pacman.conf/ >~/dotfiles/debug.log/
 sudo ln -s ~/dotfiles/Pacman/pacman.conf/ /etc/ >~/dotfiles/debug.log/
-
-# Install polybar
-sudo rm -rf ~/.config/polybar/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Polybar/polybar/ ~/.config/ >~/dotfiles/debug.log/
 
 # Install rofi
 sudo rm -rf ~/.local/share/rofi/
