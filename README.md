@@ -46,8 +46,8 @@ You can install it by doing ``sudo pacman -S kitty``
 You can install it by doing ``sudo pacman -S neovim``
 - polybar -
 You can install it by doing ``sudo pacman -S polybar``
-- rofi -
-You can install it by doing ``sudo pacman -S rofi``
+- fuzzel -
+You can install it by doing ``sudo pacman -S fuzzel``
 - zsh -
 you can install it by doing ``sudo pacman -S zsh``
 - oh-my-zsh -

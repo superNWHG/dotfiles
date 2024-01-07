@@ -28,13 +28,9 @@ ln -s ~/dotfiles/Nvim/nvim/ ~/.config/ >~/dotfiles/debug.log/
 sudo rm /etc/pacman.conf/ >~/dotfiles/debug.log/
 sudo ln -s ~/dotfiles/Pacman/pacman.conf/ /etc/ >~/dotfiles/debug.log/
 
-# Install rofi
-sudo rm -rf ~/.local/share/rofi/
-ln -s ~/dotfiles/Rofi/rofi/ ~/.local/share/
-
-sudo rm -rf ~/.config/rofi/
-sudo mkdir ~/.config/rofi/
-ln -s ~/dotfiles/Rofi/config.rasi/ ~/.config/rofi/
+# Install fuzzel
+sudo rm -rf ~/.config/fuzzel/ >~/dotfiles/debug.log/
+ln -s ~/dotfiles/Fuzzel/fuzzel/ ~/.config/ >~/dotfiles/debug.log/
 
 # Install scripts
 sudo rm -rf ~/.config/scripts/ >~/dotfiles/debug.log/
