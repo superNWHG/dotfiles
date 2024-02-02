@@ -120,6 +120,11 @@ precmd() {
   print -Pn "\e]0; %~\a"
 }
 
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH="$PATH:$GEM_HOME/bin"
+
+# Created by `pipx` on 2024-02-02 07:30:13
+export PATH="$PATH:/home/nico/.local/bin"
