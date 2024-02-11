@@ -1,5 +1,0 @@
-return {
-  {
-    "ptzz/lf.vim",
-  },
-}
