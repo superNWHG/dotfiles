@@ -18,6 +18,8 @@ return {
 				"python",
 				"gitignore",
 				"hyprlang",
+				"c_sharp",
+				"cpp",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
