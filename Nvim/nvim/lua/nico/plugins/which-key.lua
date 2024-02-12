@@ -11,7 +11,6 @@ return {
 			-- prefix: use "<leader>f" for example for mapping everything related to finding files
 			-- the prefix is prepended to every mapping part of `mappings`
 			["<leader>c"] = { name = "Github copilot chat" },
-			["<leader>f"] = { name = "Fuzzy find with telescope" },
 			["<leader>s"] = { name = "Split management" },
 			["<leader>t"] = { name = "Tab management" },
 			["<leader>b"] = { name = "Buffer management" },
