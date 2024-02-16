@@ -32,9 +32,9 @@ ln -s ~/dotfiles/Fuzzel/fuzzel/ ~/.config/ >~/dotfiles/debug.log/
 sudo rm -rf ~/.config/scripts/ >~/dotfiles/debug.log/
 ln -s ~/dotfiles/Scripts/scripts/ ~/ >~/dotfiles/debug.log/
 
-# Install wallpapers
-sudo rm -rf ~/Pictures/Wallpapers/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Wallpapers/ ~/Pictures/ >~/dotfiles/debug.log/
+# Install wallpaper
+sudo rm -rf ~/Pictures/wallpaper.jpg >~/dotfiles/debug.log/
+ln -s ~/dotfiles/Wallpaper/wallpaper.jpg ~/Pictures/ >~/dotfiles/debug.log/
 
 # Install .zshrc
 sudo rm -rf ~/.zshrc >~/dotfiles/debug.log/
