@@ -16,6 +16,7 @@ vim.opt.cursorline = true
 vim.opt.confirm = true
 vim.opt.termguicolors = true
 vim.opt.wrap = false
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
