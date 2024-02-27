@@ -10,9 +10,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
 # history settings
 HISTFILE=~/.zsh_history
 HISTSIZE=2000
@@ -25,6 +22,7 @@ SAVEHIST=10000
 # Configure fzf-tab options
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zstyle ':completion*:descriptions' format '[%d]'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -59,8 +57,6 @@ source ~/.config/zsh/plugins/zsh-sudo/zsh-sudo.zsh
 source ~/.config/zsh/plugins/zsh-archlinux/archlinux.plugin.zsh
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
-
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd)
 
 # User configuration
 
