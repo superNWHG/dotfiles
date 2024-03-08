@@ -46,3 +46,6 @@
 [submodule "Alacritty/alacritty/themes"]
 	path = Alacritty/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme.git
+[submodule "/home/nico/dotfiles/Waybar/waybar/waybar-mediaplayer"]
+	path = /home/nico/dotfiles/Waybar/waybar/waybar-mediaplayer
+	url = https://github.com/raffaem/waybar-mediaplayer
