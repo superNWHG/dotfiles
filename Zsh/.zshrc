@@ -112,3 +112,6 @@ export PATH="$PATH:$GEM_HOME/bin"
 
 # Created by `pipx` on 2024-02-02 07:30:13
 export PATH="$PATH:/home/nico/.local/bin"
+eval "$(zoxide init --cmd cd zsh)"
+
+bindkey "^[[3~" delete-char
