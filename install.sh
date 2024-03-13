@@ -2,56 +2,56 @@
 # Install script for the dotfiles
 
 # Create a debug.log
-touch ~/dotfiles/debug.log/
+touch ~/dotfiles/debug.log
 
 # Install betterdiscord
-sudo rm -rf ~/.config/BetterDiscord/ >~/dotfiles/debug.log/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Betterdiscord/BetterDiscord/ ~/.config/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.config/BetterDiscord/ >~/dotfiles/debug.log >~/dotfiles/debug.log
+ln -s ~/dotfiles/Betterdiscord/BetterDiscord/ ~/.config/ >~/dotfiles/debug.log
 
 # Install hyprland
-sudo rm -rf ~/.config/hypr/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Hyprland/hypr/ ~/.config/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.config/hypr/ >~/dotfiles/debug.log
+ln -s ~/dotfiles/Hyprland/hypr/ ~/.config/ >~/dotfiles/debug.log
 
 # Install alacritty
-sudo rm -rf ~/.config/alacritty/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Alacritty/alacritty/ ~/.config/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.config/alacritty/ >~/dotfiles/debug.log
+ln -s ~/dotfiles/Alacritty/alacritty/ ~/.config/ >~/dotfiles/debug.log
 
 # Install neovim
-sudo rm -rf ~/.config/nvim/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Nvim/nvim/ ~/.config/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.config/nvim/ >~/dotfiles/debug.log
+ln -s ~/dotfiles/Nvim/nvim/ ~/.config/ >~/dotfiles/debug.log
 
 # Install pacman
-sudo rm /etc/pacman.conf/ >~/dotfiles/debug.log/
-sudo ln -s ~/dotfiles/Pacman/pacman.conf/ /etc/ >~/dotfiles/debug.log/
+sudo rm /etc/pacman.conf/ >~/dotfiles/debug.log
+sudo ln -s ~/dotfiles/Pacman/pacman.conf/ /etc/ >~/dotfiles/debug.log
 
 # Install fuzzel
-sudo rm -rf ~/.config/fuzzel/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Fuzzel/fuzzel/ ~/.config/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.config/fuzzel/ >~/dotfiles/debug.log
+ln -s ~/dotfiles/Fuzzel/fuzzel/ ~/.config/ >~/dotfiles/debug.log
 
 # Install scripts
-sudo rm -rf ~/.config/scripts/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Scripts/scripts/ ~/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.config/scripts/ >~/dotfiles/debug.log
+ln -s ~/dotfiles/Scripts/scripts/ ~/ >~/dotfiles/debug.log
 
 # Install wallpaper
-sudo rm -rf ~/Pictures/wallpaper.jpg >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Wallpaper/wallpaper.jpg ~/Pictures/ >~/dotfiles/debug.log/
+sudo rm -rf ~/Pictures/wallpaper.jpg >~/dotfiles/debug.log
+ln -s ~/dotfiles/Wallpaper/wallpaper.jpg ~/Pictures/ >~/dotfiles/debug.log
 
 # Install .zshrc
-sudo rm -rf ~/.zshrc >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Zsh/.zshrc ~/.zshrc >~/dotfiles/debug.log/
+sudo rm -rf ~/.zshrc >~/dotfiles/debug.log
+ln -s ~/dotfiles/Zsh/.zshrc ~/.zshrc >~/dotfiles/debug.log
 
 # Install zsh plugins
-sudo rm -rf ~/.config/zsh >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Zsh/zsh/ ~/.config/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.config/zsh >~/dotfiles/debug.log
+ln -s ~/dotfiles/Zsh/zsh/ ~/.config/ >~/dotfiles/debug.log
 
 # Install i3lock-color
-sudo rm -rf ~/.config/swaylock/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Swaylock/swaylock/ ~/.config/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.config/swaylock/ >~/dotfiles/debug.log
+ln -s ~/dotfiles/Swaylock/swaylock/ ~/.config/ >~/dotfiles/debug.log
 
 # Install powerlevel10k
-sudo rm -rf ~/.p10k.zsh >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Zsh/.p10k.zsh ~/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.p10k.zsh >~/dotfiles/debug.log
+ln -s ~/dotfiles/Zsh/.p10k.zsh ~/ >~/dotfiles/debug.log
 
 # Install wlogout
-sudo rm -rf ~/.config/wlogout/ >~/dotfiles/debug.log/
-ln -s ~/dotfiles/Wlogout/wlogout/ ~/.config/ >~/dotfiles/debug.log/
+sudo rm -rf ~/.config/wlogout/ >~/dotfiles/debug.log
+ln -s ~/dotfiles/Wlogout/wlogout/ ~/.config/ >~/dotfiles/debug.log
