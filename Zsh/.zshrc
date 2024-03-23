@@ -57,8 +57,11 @@ source ~/.config/zsh/plugins/zsh-sudo/zsh-sudo.zsh
 source ~/.config/zsh/plugins/zsh-archlinux/archlinux.plugin.zsh
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # User configuration
+
+ZVM_CURSOR_STYLE_ENABLED=false
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -95,7 +98,7 @@ unset __conda_setup
 # aliasses
 # alias nvim="sudo -E nvim"
 alias clear="printf '\033[H\033[2J\033[3J'"
-alias clean="yay -Scc && yay -Rns $(yay -Qtdq) && sudo rm -rf ~/.cache/*"
+alias clean="paru -Scc && paru -Rns $(paru -Qtdq) && rm -rf ~/.cache/*"
 alias ccd="cd && clear"
 alias ls="lsd"
 alias history="history 0"

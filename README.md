@@ -30,7 +30,9 @@ _Optional_
 - Whatsdesk -
   You can install it using the AUR by doing `paru -S whatsdesk`
 - KeepassXC -
-  You can install it using the AUR by doing `sudo pacman -S keepassxc`
+  You can install it by doing `sudo pacman -S keepassxc`
+- Zsh vim mode -
+  You can install it using the AUR by doing `paru -S zsh-vi-mode`
 
 ## **Installation**
 
