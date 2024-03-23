@@ -1,7 +1,7 @@
 /**
  * @name ShowHiddenChannels
  * @displayName Show Hidden Channels (SHC)
- * @version 0.4.1
+ * @version 0.4.4
  * @author JustOptimize (Oggetto)
  * @authorId 619203349954166804
  * @source https://github.com/JustOptimize/return-ShowHiddenChannels
@@ -15,48 +15,28 @@ const config = {
       name: "JustOptimize (Oggetto)"
     }],
     description: "A plugin which displays all hidden Channels and allows users to view information about them, this won't allow you to read them (impossible).",
-    version: "0.4.1",
+    version: "0.4.4",
     github: "https://github.com/JustOptimize/return-ShowHiddenChannels",
     github_raw: "https://raw.githubusercontent.com/JustOptimize/return-ShowHiddenChannels/main/ShowHiddenChannels.plugin.js"
   },
 
   changelog: [
     {
-      title: "v0.4.1 - Bug Fixes",
+      title: "v0.4.4 - Fix Show Permissions",
       items: [
-        "Removed alwaysCollapse setting (broken)"
+        "Fixed Show Permissions feature, it's now working again."
       ]
     },
     {
-      title: "v0.4.0 - Users, Icons & Bug Fixes",
+      title: "v0.4.3 - Prevent Crashing (Limited Features)",
       items: [
-        "Using selected icon in the hidden channel lockscreen",
-        "Moved eye icon to github assets folder",
-        "Fixed users getting fetched multiple times",
-        "Fixed context menu not showing up in some cases",
-        "Rewritten code to improve performance and readability"
+        "Disabled Show Permissions feature, it's broken and causes crashes."
       ]
     },
     {
-      title: "v0.3.9 - Collapsing",
+      title: "v0.4.2 - Fix Crashing",
       items: [
-        "Fixed collapsing for Extra Category sorting (Thanks @TharkiDev)",
-        "Fixed collapsing for Bottom Category sorting (Thanks @Gpax971)"
-      ]
-    },
-    {
-      title: "v0.3.8 - Small temporary patch",
-      items: [
-        "Temp patch for extra category collapsing (#154), will be fixed in the future"
-      ]
-    },
-    {
-      title: "v0.3.7 - Bug Fixes & Improvements",
-      items: [
-        "Improved code readability",
-        "Missing modules warnings will now tell you which feature will be affected",
-        "Updated all deprecated BdApi functions",
-        "Fixed extra category sorting (#152), thanks @JPXR for reporting it"
+        "Fix \"(SHC) Broken Modules\", thanks Shynno Scarlet for the quick pull request."
       ]
     }
   ],
@@ -204,13 +184,13 @@ module.exports = !global.ZeresPluginLibrary ? MissingZeresDummy : (([Pl, Lib]) =
     const Voice = WebpackModules.getByProps("getVoiceStateStats");
     const RolePill = WebpackModules.getByProps("MemberRole")?.MemberRole;
     const UserMentions = WebpackModules.getByProps("handleUserContextMenu");
-    const ChannelUtils = WebpackModules.getByProps("renderTopic", "HeaderGuildBreadcrumb", "ChannelEmoji", "renderTitle");
+    const ChannelUtils = WebpackModules.getByProps("renderTopic", "HeaderGuildBreadcrumb", "renderTitle");
     
     const ProfileActions = WebpackModules.getByProps("fetchProfile", "getUser");
     const PermissionUtils = WebpackModules.getByProps("isRoleHigher", "makeEveryoneOverwrite");
 
     const CategoryStore = WebpackModules.getByProps("isCollapsed", "getCollapsedCategories");
-    
+
     const UsedModules = {
       /* Library */
       Utilities,
@@ -271,7 +251,6 @@ module.exports = !global.ZeresPluginLibrary ? MissingZeresDummy : (([Pl, Lib]) =
       PermissionUtils,
       CategoryStore
     };
-
 
     const ChannelTypes = [
       "GUILD_TEXT",
@@ -977,6 +956,8 @@ module.exports = !global.ZeresPluginLibrary ? MissingZeresDummy : (([Pl, Lib]) =
 
           React.useEffect(() => { fetchMemberAndMap(); }, [props.channel.id, props.guild.id, this.settings["showPerms"]]);
 
+          const guildRoles = GuildStore.getRoles(props.guild.id);
+
           return React.createElement(
             "div",
             {
@@ -1171,24 +1152,24 @@ module.exports = !global.ZeresPluginLibrary ? MissingZeresDummy : (([Pl, Lib]) =
                           //* 8n = ADMINISTRATOR permission
                           ( 
                             //* If role is ADMINISTRATOR it can view channel even if overwrites deny VIEW_CHANNEL
-                            (this.settings["showAdmin"] && ((props.guild.roles[role.id].permissions & BigInt(8)) == BigInt(8))) ||
+                            (this.settings["showAdmin"] && ((guildRoles[role.id].permissions & BigInt(8)) == BigInt(8))) ||
 
                             //* If overwrites allow VIEW_CHANNEL (it will override the default role permissions)
                             ((role.allow & BigInt(1024)) == BigInt(1024)) ||
 
                             //* If role can view channel by default and overwrites don't deny VIEW_CHANNEL
-                            ((props.guild.roles[role.id].permissions & BigInt(1024)) && ((role.deny & BigInt(1024)) == 0))
+                            ((guildRoles[role.id].permissions & BigInt(1024)) && ((role.deny & BigInt(1024)) == 0))
                           )
                         );
 
-                        if (!channelRoles?.length) return ["None"];                      
+                        if (!channelRoles?.length) return ["None"];
                         return channelRoles.map(m => RolePill.render({
                           canRemove: false,
                           className: `${rolePill} shc-rolePill`,
                           disableBorderColor: true,
                           guildId: props.guild.id,
                           onRemove: DiscordConstants.NOOP,
-                          role: props.guild.roles[m.id]
+                          role: guildRoles[m.id]
                         }, DiscordConstants.NOOP));
                       })()
                     )
@@ -1212,18 +1193,16 @@ module.exports = !global.ZeresPluginLibrary ? MissingZeresDummy : (([Pl, Lib]) =
                         }
                       },
                       ...(() => {
-                          const guildRoles = [];
+                          const adminRoles = [];
 
-                          if (this.settings["showAdmin"]) {
-                            Object.values(props.guild.roles).forEach(role => {
-                              if ((role.permissions & BigInt(8)) == BigInt(8) && (this.settings["showAdmin"] == "include" || (this.settings["showAdmin"] == "exclude" && !role.tags?.bot_id))) {
-                                guildRoles.push(role);
-                              }
-                            });
-                          }
+                          Object.values(guildRoles).forEach(role => {
+                            if ((role.permissions & BigInt(8)) == BigInt(8) && (this.settings["showAdmin"] == "include" || (this.settings["showAdmin"] == "exclude" && !role.tags?.bot_id))) {
+                              adminRoles.push(role);
+                            }
+                          });
 
-                          if (!guildRoles?.length) return ["None"];                      
-                          return guildRoles.map(m => RolePill.render({
+                          if (!adminRoles?.length) return ["None"];                      
+                          return adminRoles.map(m => RolePill.render({
                             canRemove: false,
                             className: `${rolePill} shc-rolePill`,
                             disableBorderColor: true,
