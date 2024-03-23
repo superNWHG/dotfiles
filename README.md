@@ -71,11 +71,11 @@ sudo rm -rf ~/.config/file-or-directory-you-want-to-symlink/
 ln -s ~/dotfiles/file-or-directory-you-want-to-symlink/ ~/.config/
 ```
 
-For example, for kitty do:
+For example, for Alacritty do:
 
 ```shell
-sudo rm -rf ~/.config/kitty/
-ln -s ~/dotfiles/Kitty/kitty/ ~/.config/
+rm -rf ~/.config/alacritty/
+ln -s ~/dotfiles/Kitty/alacritty/ ~/.config/
 ```
 
 **.zshrc, pacman.conf, rofi and powerlevel10k are different.**
@@ -83,7 +83,7 @@ ln -s ~/dotfiles/Kitty/kitty/ ~/.config/
 For .zshrc do:
 
 ```shell
-sudo rm ~/.zshrc/
+~/.zshrc/
 ln -s ~/dotfiles/Zsh/.zshrc ~/
 ```
 
@@ -97,17 +97,17 @@ sudo ln -s ~/dotfiles/Pacman/pacman.conf/ /etc/
 For rofi do:
 
 ```shell
-sudo rm -rf ~/.local/share/rofi/
+rm -rf ~/.local/share/rofi/
 ln -s ~/dotfiles/Rofi/rofi/ ~/.local/share/
 
-sudo rm -rf ~/.config/rofi/
-sudo mkdir ~/.config/rofi/
+rm -rf ~/.config/rofi/
+mkdir ~/.config/rofi/
 ln -s ~/dotfiles/Rofi/config.rasi/ ~/.config/rofi/
 ```
 
 For powerlevel10k do:
 
 ```shell
-sudo rm -rf ~/.p10k.zsh/
+rm -rf ~/.p10k.zsh/
 ln -s ~/dotfiles/Zsh/.p10k.zsh ~/
 ```
