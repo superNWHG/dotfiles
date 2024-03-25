@@ -69,11 +69,16 @@ rm -rf ~/.config/file-or-directory-you-want-to-symlink/
 ln -s ~/dotfiles/file-or-directory-you-want-to-symlink/ ~/.config/
 ```
 
-For example, for kitty do:
+For example, for Alacritty do:
 
 ```shell
+<<<<<<< HEAD
 rm -rf ~/.config/kitty/
 ln -s ~/dotfiles/Kitty/kitty/ ~/.config/
+=======
+rm -rf ~/.config/alacritty/
+ln -s ~/dotfiles/Kitty/alacritty/ ~/.config/
+>>>>>>> refs/remotes/origin/main
 ```
 
 **.zshrc, pacman.conf, rofi and powerlevel10k are different.**
@@ -81,7 +86,11 @@ ln -s ~/dotfiles/Kitty/kitty/ ~/.config/
 For .zshrc do:
 
 ```shell
+<<<<<<< HEAD
 rm ~/.zshrc
+=======
+~/.zshrc/
+>>>>>>> refs/remotes/origin/main
 ln -s ~/dotfiles/Zsh/.zshrc ~/
 ```
 
@@ -95,18 +104,26 @@ sudo ln -s ~/dotfiles/Pacman/pacman.conf/ /etc/
 For rofi do:
 
 ```shell
-sudo rm -rf ~/.local/share/rofi/
+rm -rf ~/.local/share/rofi/
 ln -s ~/dotfiles/Rofi/rofi/ ~/.local/share/
 
 rm -rf ~/.config/rofi/
 mkdir ~/.config/rofi/
+<<<<<<< HEAD
 ln -s ~/dotfiles/Rofi/config.rasi ~/.config/rofi/
+=======
+ln -s ~/dotfiles/Rofi/config.rasi/ ~/.config/rofi/
+>>>>>>> refs/remotes/origin/main
 ```
 
 For powerlevel10k do:
 
 ```shell
+<<<<<<< HEAD
 rm -rf ~/.p10k.zsh
+=======
+rm -rf ~/.p10k.zsh/
+>>>>>>> refs/remotes/origin/main
 ln -s ~/dotfiles/Zsh/.p10k.zsh ~/
 ```
 
