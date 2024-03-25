@@ -105,7 +105,6 @@ ln -s ~/dotfiles/Rofi/config.rasi ~/.config/rofi/
 For powerlevel10k do:
 
 ```shell
-<<<<<<< HEAD
 rm -rf ~/.p10k.zsh
 ln -s ~/dotfiles/Zsh/.p10k.zsh ~/
 ```
