@@ -23,10 +23,8 @@ _Optional_
 
 - Firefox -
   You can install it by doing `sudo pacman -S firefox`
-- Discord -
-  You can install it by doing `sudo pacman -S discord`
-- Betterdiscord -
-  You can install it using the AUR by doing `paru -S betterdiscord-installer`
+- Webcord -
+  You can install it using the AUR by doing `paru -S webcord`
 - Whatsdesk -
   You can install it using the AUR by doing `paru -S whatsdesk`
 - KeepassXC -
@@ -67,14 +65,14 @@ To install using the script do:
 First, create a symlink for every file or directory:
 
 ```shell
-sudo rm -rf ~/.config/file-or-directory-you-want-to-symlink/
+rm -rf ~/.config/file-or-directory-you-want-to-symlink/
 ln -s ~/dotfiles/file-or-directory-you-want-to-symlink/ ~/.config/
 ```
 
 For example, for kitty do:
 
 ```shell
-sudo rm -rf ~/.config/kitty/
+rm -rf ~/.config/kitty/
 ln -s ~/dotfiles/Kitty/kitty/ ~/.config/
 ```
 
@@ -83,7 +81,7 @@ ln -s ~/dotfiles/Kitty/kitty/ ~/.config/
 For .zshrc do:
 
 ```shell
-sudo rm ~/.zshrc/
+rm ~/.zshrc
 ln -s ~/dotfiles/Zsh/.zshrc ~/
 ```
 
@@ -100,14 +98,23 @@ For rofi do:
 sudo rm -rf ~/.local/share/rofi/
 ln -s ~/dotfiles/Rofi/rofi/ ~/.local/share/
 
-sudo rm -rf ~/.config/rofi/
-sudo mkdir ~/.config/rofi/
-ln -s ~/dotfiles/Rofi/config.rasi/ ~/.config/rofi/
+rm -rf ~/.config/rofi/
+mkdir ~/.config/rofi/
+ln -s ~/dotfiles/Rofi/config.rasi ~/.config/rofi/
 ```
 
 For powerlevel10k do:
 
 ```shell
-sudo rm -rf ~/.p10k.zsh/
+rm -rf ~/.p10k.zsh
 ln -s ~/dotfiles/Zsh/.p10k.zsh ~/
+```
+
+For Webcord do:
+
+```shell
+rm -rf ~/.config/WebCord/Themes/
+ln -s  ~/dotfiles/Webcord/Themes/ ~/.config/WebCord/
+rm ~/.config/WebCord/config.json
+ln -s ~/dotfiles/Webcord/config.json ~/.config/WebCord/
 ```
