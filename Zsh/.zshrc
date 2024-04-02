@@ -8,7 +8,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-source ~/.config/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 # history settings
 HISTFILE=~/.zsh_history

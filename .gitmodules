@@ -40,3 +40,6 @@
 [submodule "Alacritty/alacritty/themes"]
 	path = Alacritty/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme.git
+[submodule "Zsh/zsh/plugins/powerlevel10k"]
+	path = Zsh/zsh/plugins/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
