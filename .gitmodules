@@ -37,9 +37,6 @@
 [submodule "Zsh/zsh/plugins/zsh-sudo"]
 	path = Zsh/zsh/plugins/zsh-sudo
 	url = https://github.com/none9632/zsh-sudo
-[submodule "Zsh/zsh/themes/powerlevel10k"]
-	path = Zsh/zsh/plugins/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k
 [submodule "Alacritty/alacritty/themes"]
 	path = Alacritty/alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme.git
