@@ -28,9 +28,6 @@
 [submodule "Zsh/zsh/plugins/k"]
 	path = Zsh/zsh/plugins/k
 	url = https://github.com/supercrabtree/k
-[submodule "Zsh/zsh/plugins/zsh-archlinux"]
-	path = Zsh/zsh/plugins/zsh-archlinux
-	url = https://github.com/Junker/zsh-archlinux
 [submodule "Zsh/zsh/plugins/zsh-autosuggestions"]
 	path = Zsh/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions

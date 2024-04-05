@@ -54,7 +54,7 @@ source ~/.config/zsh/plugins/k/k.sh
 source ~/.config/zsh/plugins/alias-tips/alias-tips.plugin.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/plugins/zsh-sudo/zsh-sudo.zsh
-source ~/.config/zsh/plugins/zsh-archlinux/archlinux.plugin.zsh
+source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
