@@ -95,12 +95,6 @@ unset __conda_setup
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# aliasses
-alias clean="paru -Scc && paru -Rns $(paru -Qtdq) && rm -rf ~/.cache/*"
-alias ccd="cd && clear"
-alias ls="lsd"
-alias history="history 0"
-
 precmd() {
   print -Pn "\e]0; %~\a"
 }
