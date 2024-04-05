@@ -16,3 +16,11 @@ alias clean="paru -Scc && paru -Rns $(paru -Qtdq) && rm -rf ~/.cache/*"
 alias ccd="cd && clear"
 alias ls="lsd"
 alias history="history 0"
+alias s="sudo"
+
+# Git aliases
+alias g="git"
+alias ga="git add"
+alias gaa="git add ."
+alias gc="git commit -m"
+alias gp="git push"
