@@ -115,9 +115,9 @@ fi
 
 echo ""
 
-read -p "Would you like to install i3lock-color [y/N] " i3lock-color
-i3lock-color=$(echo "$i3lock-color" | tr '[:upper:]' '[:lower:]')
-if [ "$i3lock-color" = "y" ] || [ "$i3lock-color" = "yes" ]; then
+read -p "Would you like to install i3lock-color [y/N] " i3lockcolor
+i3lockcolor=$(echo "$i3lock-color" | tr '[:upper:]' '[:lower:]')
+if [ "$i3lockcolor" = "y" ] || [ "$i3lock-color" = "yes" ]; then
 	echo "Installing i3lock-color..."
 	rm -rf ~/.config/i3lock-color/
 	ln -s ~/dotfiles/i3lock-color/ ~/.config/
