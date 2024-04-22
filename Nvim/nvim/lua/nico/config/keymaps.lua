@@ -15,9 +15,4 @@ vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { desc = "Switch to the window
 vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>", { desc = "Switch to the window above" })
 vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", { desc = "Switch to the window below" })
 
-vim.keymap.set("i", "<C-n>", function()
-	local input = vim.fn.input("Enter your name: ")
-	print("Hello, " .. input .. "!")
-end)
-
 vim.keymap.set("n", "<leader>a", "<esc>ggvG<CR>", { desc = "Select all text" })

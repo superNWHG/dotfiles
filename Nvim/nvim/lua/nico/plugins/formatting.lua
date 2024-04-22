@@ -23,12 +23,32 @@ return {
 			},
 		})
 
-		vim.keymap.set({ "n", "v" }, "<leader>m", function()
-			conform.format({
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 500,
-			})
-		end, { desc = "Format file or selected text" })
+		local wk = require("which-key")
+		wk.register({
+			["<leader>m"] = {
+				function()
+					conform.format({
+						lsp_fallback = true,
+						async = false,
+						timeout_ms = 500,
+					})
+				end,
+				"Format file",
+			},
+			mode = "n",
+		})
+		wk.register({
+			["<leader>m"] = {
+				function()
+					conform.format({
+						lsp_fallback = true,
+						async = false,
+						timeout_ms = 500,
+					})
+				end,
+				"Format selected text",
+			},
+			mode = "v",
+		})
 	end,
 }

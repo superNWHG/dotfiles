@@ -20,6 +20,11 @@ return {
 				"hyprlang",
 				"c_sharp",
 				"cpp",
+				"bash",
+				"diff",
+				"markdown",
+				"toml",
+				"yaml",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)

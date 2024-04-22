@@ -1,2 +1,2 @@
-require("nico.core")
+require("nico.config")
 require("nico.lazy")

@@ -12,15 +12,21 @@ return {
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		local keymap = vim.keymap -- for conciseness
+		local keymap = vim.keymap
 
 		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
 			-- set keybinds
-			opts.desc = "Show documentation for what is under cursor"
-			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+			local wk = require("which-key")
+			wk.register({
+				h = {
+					name = "LSP",
+					h = { vim.lsp.buf.hover, "Show documentation" },
+					r = { vim.lsp.buf.rename, "Rename variable" },
+				},
+			}, { prefix = "<leader>" })
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
