@@ -57,8 +57,8 @@ if [ "$Pacman" = "n" ] || [ "$Pacman" = "no" ]; then
 	echo "Skipping Pacman"
 else
 	echo "Installing Pacman..."
-	rm -rf ~/.config/pacman/
-	ln -s ~/dotfiles/pacman/ ~/.config/
+	sudo rm /etc/pacman.conf
+	sudo ln -s ~/dotfiles/pacman/ ~/etc/
 fi
 
 echo ""
