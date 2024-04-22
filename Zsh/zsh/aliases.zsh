@@ -24,3 +24,10 @@ alias ga="git add"
 alias gaa="git add ."
 alias gc="git commit -m"
 alias gp="git push"
+alias gpl="git pull"
+alias gd="git diff"
+
+# Typo aliases
+alias vnim="nvim"
+alias dc="cd"
+alias sduo="sudo"
