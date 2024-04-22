@@ -12,7 +12,7 @@ return {
 			filetypes = {
 				"help",
 				"dashboard",
-				"neo-tree",
+				"NvimTree",
 				"lazy",
 				"mason",
 				"notify",
