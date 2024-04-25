@@ -51,7 +51,7 @@ git submodule update --init --recursive
 Make the script executable if it is not already
 
 ```shell
-sudo chmod +x ~/dotfiles/install-i3.sh && sudo chmod +x ~/dotfiles/install.sh
+chmod +x ~/dotfiles/install.sh
 ```
 
 To install using the script do:

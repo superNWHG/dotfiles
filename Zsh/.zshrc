@@ -23,6 +23,8 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 autoload -Uz compinit
 compinit -D
 
+eval "$(zoxide init zsh)"
+
 # Load plugins
 source ~/.config/zsh/plugins/k/k.sh
 source ~/.config/zsh/plugins/alias-tips/alias-tips.plugin.zsh

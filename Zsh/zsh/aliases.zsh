@@ -31,3 +31,6 @@ alias gd="git diff"
 alias vnim="nvim"
 alias dc="cd"
 alias sduo="sudo"
+
+# Other aliases
+alias cd="z"

@@ -5,9 +5,9 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/window"],
+    "modules-left": ["tray", "battery", "backlight", "hyprland/window"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["custom/spotify", "pulseaudio", "network", "backlight", "battery", "clock", "tray"],
+    "modules-right": ["custom/spotify", "pulseaudio", "network", "clock"],
     // Modules configuration
      "hyprland/workspaces": {
          "disable-scroll": false,
