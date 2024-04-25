@@ -12,39 +12,13 @@ source ~/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 # history settings
 HISTFILE=~/.zsh_history
-HISTSIZE=2000
-SAVEHIST=10000
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HISTSIZE=20000
+SAVEHIST=20000
 
 # Configure fzf-tab options
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zstyle ':completion*:descriptions' format '[%d]'
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
 
 autoload -Uz compinit
 compinit -D
@@ -59,14 +33,9 @@ source ~/.config/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.p
 source ~/.config/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
-# User configuration
-
 ZVM_CURSOR_STYLE_ENABLED=false
 
-# Preferred editor for local and remote sessions
 export EDITOR='nvim'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 precmd() {
   print -Pn "\e]0; %~\a"
@@ -77,9 +46,5 @@ precmd() {
 
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
-
-# Created by `pipx` on 2024-02-02 07:30:13
-export PATH="$PATH:/home/nico/.local/bin"
-eval "$(zoxide init --cmd cd zsh)"
 
 bindkey "^[[3~" delete-char
