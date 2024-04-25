@@ -5,8 +5,8 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": ["hyprland/window"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": ["custom/spotify", "pulseaudio", "network", "backlight", "battery", "clock", "tray"],
     // Modules configuration
      "hyprland/workspaces": {
@@ -15,14 +15,14 @@
          "warp-on-scroll": false,
          "format": "{name} {icon}",
          "format-icons": {
-             "1": "  Browser    ",
-             "2": "  Code    ",
-             "3": "  Terminal    ",
-             "4": "  File manager    ",
-             "6": "  Settings    ",
-             "8": "  Keepass    ",
-             "9": "  Chat    ",
-            "10": "  Music    ",
+             "1": "    ",
+             "2": "    ",
+             "3": "    ",
+             "4": "    ",
+             "6": "    ",
+             "8": "    ",
+             "9": "    ",
+            "10": "    ",
              "urgent": "    ",
              "default": "    ",
              "focused": "    "
@@ -44,16 +44,16 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 80,
             "warning": 30,
             "critical": 15
         },
         "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
+        "format-charging": "{capacity}% 󰂄",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        "format-good": "",
+        "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
 
@@ -67,11 +67,11 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 1,
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-bluetooth-muted": "󰝟 {icon} {format_source}",
+        "format-muted": "󰝟 {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
