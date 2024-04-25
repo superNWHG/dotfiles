@@ -17,7 +17,9 @@ _Required_
 - Fuzzel -
   You can install it by doing `sudo pacman -S fuzzel`
 - Zsh -
-  you can install it by doing `sudo pacman -S zsh`
+  You can install it by doing `sudo pacman -S zsh`
+- Dunst -
+  You can install it by doing `sudo pacman -S dunst`
 
 _Optional_
 

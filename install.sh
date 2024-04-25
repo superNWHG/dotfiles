@@ -199,4 +199,14 @@ fi
 
 echo ""
 
+read -p "Would you like to install Dunst? [Y/n] " Dunst
+Duns=$(echo "$Dunst" | tr '[:upper:]' '[:lower:]')
+if [ "$Dunst" = "n" ] || [ "$Dunst" = "no" ]; then
+	echo "Skipping Dunst"
+else
+	echo "Installing Dunst..."
+	rm -rf ~/.config/dunst/
+	ln -s ~/dotfiles/dunst/ ~/.config/
+fi
+
 echo "Thank you for installing my dotfiles!"
