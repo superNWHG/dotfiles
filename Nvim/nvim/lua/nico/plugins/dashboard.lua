@@ -39,6 +39,12 @@ return {
 						key = "f",
 					},
 					{
+						action = "lua require('persistence').load({ last = true })",
+						desc = "  Open last session",
+						icon = "󰑓",
+						key = "s",
+					},
+					{
 						action = "Telescope oldfiles",
 						desc = "  Recent Files",
 						icon = "",
