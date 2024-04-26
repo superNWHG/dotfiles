@@ -12,9 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	install = {
-		colorscheme = { "dracula" },
-	},
+	-- install = {
+	-- colorscheme = { "tokyonight" },
+	-- },
 	change_detaction = {
 		notify = false,
 	},
