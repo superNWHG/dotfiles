@@ -63,14 +63,14 @@ fi
 
 echo ""
 
-read -p "Would you like to install Fuzzel? [Y/n] " Fuzzel
+read -p "Would you like to install Fuzzel? [y/N] " Fuzzel
 Fuzzel=$(echo "$Fuzzel" | tr '[:upper:]' '[:lower:]')
-if [ "$Fuzzel" = "n" ] || [ "$Fuzzel" = "no" ]; then
-	echo "Skipping Fuzzel"
-else
+if [ "$Fuzzel" = "y" ] || [ "$Fuzzel" = "no" ]; then
 	echo "Installing Fuzzel..."
 	rm -rf ~/.config/fuzzel/
 	ln -s ~/dotfiles/fuzzel/ ~/.config/
+else
+	echo "Skipping Fuzzel"
 fi
 
 echo ""
@@ -200,13 +200,25 @@ fi
 echo ""
 
 read -p "Would you like to install Dunst? [Y/n] " Dunst
-Duns=$(echo "$Dunst" | tr '[:upper:]' '[:lower:]')
+Dunst=$(echo "$Dunst" | tr '[:upper:]' '[:lower:]')
 if [ "$Dunst" = "n" ] || [ "$Dunst" = "no" ]; then
 	echo "Skipping Dunst"
 else
 	echo "Installing Dunst..."
 	rm -rf ~/.config/dunst/
 	ln -s ~/dotfiles/dunst/ ~/.config/
+fi
+
+echo ""
+
+read -p "Would you like to install Tofi? [Y/n] " Tofi
+Tofi=$(echo "$Tofi" | tr '[:upper:]' '[:lower:]')
+if [ "$Tofi" = "n" ] || [ "$Tofi" = "no" ]; then
+	echo "Skipping Tofi"
+else
+	echo "Installing Tofi..."
+	rm -rf ~/.config/tofi/
+	ln -s ~/dotfiles/tofi/ ~/.config/
 fi
 
 echo "Thank you for installing my dotfiles!"

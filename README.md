@@ -14,8 +14,8 @@ _Required_
   You can install it by doing `sudo pacman -S Alacritty`
 - Neovim -
   You can install it by doing `sudo pacman -S neovim`
-- Fuzzel -
-  You can install it by doing `sudo pacman -S fuzzel`
+- Tofi -
+  You can install it by doing `paru -S tofi`
 - Zsh -
   You can install it by doing `sudo pacman -S zsh`
 - Dunst -
