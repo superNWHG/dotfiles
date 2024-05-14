@@ -6,7 +6,7 @@ timestr=%R
 datestr=%a, %e of %B
 
 # Add an image as a background 
-image=~/dotfiles/Wallpaper/wallpaper.jpg
+image=~/dotfiles/Wallpapers/wallpaper.jpg
 
 # Fade in time
 fade-in=0.5
