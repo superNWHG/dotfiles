@@ -13,7 +13,7 @@ parse_json() {
     echo "$workspace"
 }
 
-hyprctl clients -j | jq -c '.[]' > temp_file
+hyprctl clients -j | jq -c '.[]' > ~/.cache/temp_file
 
 while IFS= read -r entry; do
     class=$(echo "$entry" | jq -r '.class')
@@ -22,7 +22,7 @@ while IFS= read -r entry; do
         CurrentWorkspace=$(echo "$workspace" | jq -r '.id')
         break
     fi
-done < temp_file
+done < ~/.cache/temp_file
 
 echo $CurrentWorkspace
 
@@ -44,4 +44,4 @@ if [ "$CurrentWorkspace" = "-99" ]; then
 else
 	hyprctl dispatch movetoworkspacesilent special,"$WindowClass"
 fi
-rm temp_file
+rm ~/.cache/temp_file
