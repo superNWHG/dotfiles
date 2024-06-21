@@ -27,8 +27,8 @@ _Optional_
   You can install it by doing `sudo pacman -S firefox`
 - Webcord -
   You can install it using the AUR by doing `paru -S webcord`
-- Whatsdesk -
-  You can install it using the AUR by doing `paru -S whatsdesk`
+- Whatstron -
+  You can install it using the AUR by doing `paru -S whattron`
 - KeepassXC -
   You can install it by doing `sudo pacman -S keepassxc`
 - Zsh vim mode -
