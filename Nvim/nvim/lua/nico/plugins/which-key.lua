@@ -10,7 +10,7 @@ return {
 			mode = "n", -- NORMAL mode
 			-- prefix: use "<leader>f" for example for mapping everything related to finding files
 			-- the prefix is prepended to every mapping part of `mappings`
-			["<leader>c"] = { name = "Github copilot chat" },
+			["<leader>c"] = { name = "Github copilot" },
 			["<leader>s"] = { name = "Split management" },
 			["<leader>t"] = { name = "Tab management" },
 			["<leader>b"] = { name = "Buffer management" },

@@ -25,3 +25,5 @@ vim.cmd("set shiftwidth=2 smarttab")
 vim.opt.tabstop = 2
 
 vim.g.python3_host_prog = "/usr/bin/python3"
+
+vim.g.suda_smart_edit = 1
