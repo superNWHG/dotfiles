@@ -109,8 +109,6 @@ else
 	ln -s ~/dotfiles/zsh/.zshrc ~/
 	rm -rf ~/.config/zsh
 	ln -s ~/dotfiles/Zsh/zsh/ ~/.config/
-	rm ~/.p10k.zsh
-	ln -s ~/dotfiles/Zsh/.p10k.zsh ~/
 fi
 
 echo ""

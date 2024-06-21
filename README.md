@@ -18,6 +18,8 @@ _Required_
   You can install it by doing `paru -S tofi`
 - Zsh -
   You can install it by doing `sudo pacman -S zsh`
+- Starship -
+  You can install it by doing `sudo pacman -S starship`
 - Dunst -
   You can install it by doing `sudo pacman -S dunst`
 
