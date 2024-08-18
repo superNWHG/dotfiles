@@ -1,13 +1,10 @@
 return {
 	"RRethy/vim-illuminate",
-	event = { "BufReadPost",
-		"BufWritePost",
-		"BufNewFile" },
-	opts = {
-		delay = 200,
-		large_file_cutoff = 2000,
-		large_file_overrides = {
-			providers = { "lsp" },
-		},
-	},
+	event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+	config = function()
+		require("illuminate").configure({
+			large_file_cutoff = 1000,
+			case_insensitive_regex = true,
+		})
+	end,
 }

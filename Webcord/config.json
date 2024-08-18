@@ -27,7 +27,8 @@
                 "fullscreen": true,
                 "notifications": true,
                 "display-capture": true,
-                "background-sync": true
+                "background-sync": true,
+                "speaker-selection": false
             }
         },
         "advanced": {
@@ -72,8 +73,8 @@
     },
     "update": {
         "notification": {
-            "version": "",
-            "till": ""
+            "version": "v4.10.0",
+            "till": "2024-07-13T14:30:28.456Z"
         }
     },
     "screenShareStore": {

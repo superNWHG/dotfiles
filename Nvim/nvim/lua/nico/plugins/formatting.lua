@@ -15,6 +15,7 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				csharp = { "csharpier" },
+				kotlin = { "ktfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

@@ -25,6 +25,7 @@ return {
 				"markdown",
 				"toml",
 				"yaml",
+				"kotlin",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
