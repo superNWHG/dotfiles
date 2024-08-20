@@ -13,7 +13,6 @@ return {
 		"saadparwaiz1/cmp_luasnip",
 		"onsails/lspkind.nvim",
 		"crazyhulk/cmp-sign",
-		"Dosx001/cmp-commit",
 	},
 
 	config = function()
@@ -77,7 +76,6 @@ return {
 				{ name = "nvim_lsp", group_index = 2 },
 				{ name = "luasnip", group_index = 2 }, -- For luasnip users.
 				{ name = "nvim_cmp_sign", group_index = 2 },
-				{ name = "git", group_index = 2 },
 			}, {
 				{ name = "buffer", group_index = 2 },
 				{ name = "path", group_index = 2 },
