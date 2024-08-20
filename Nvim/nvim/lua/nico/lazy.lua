@@ -20,4 +20,5 @@ require("lazy").setup({
 	},
 	{ import = "nico.plugins" },
 	{ import = "nico.plugins.lsp" },
+	{ import = "nico.plugins.dap" },
 })

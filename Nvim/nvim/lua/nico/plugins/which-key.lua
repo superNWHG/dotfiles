@@ -8,15 +8,12 @@ return {
 	end,
 	opts = {
 		defaults = {
-			mode = "n", -- NORMAL mode
-			-- prefix: use "<leader>f" for example for mapping everything related to finding files
-			-- the prefix is prepended to every mapping part of `mappings`
-			{ "<leader>c", group = "Github copilot" },
-			{ "<leader>s", group = "Split management" },
-			{ "<leader>t", group = "Tab management" },
-			{ "<leader>b", group = "Buffer management" },
+			{ "c", group = "Github copilot" },
+			{ "s", group = "Split management" },
+			{ "t", group = "Tab management" },
+			{ "b", group = "Buffer management" },
 		},
-		prefix = "",
+		prefix = "<leader>",
 		buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 		silent = true, -- use `silent` when creating keymaps
 		noremap = true, -- use `noremap` when creating keymaps

@@ -16,6 +16,7 @@ return {
 				python = { "isort", "black" },
 				csharp = { "csharpier" },
 				kotlin = { "ktfmt" },
+				c = { "clang-format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

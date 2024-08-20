@@ -12,6 +12,8 @@ return {
 		"rafamadriz/friendly-snippets",
 		"saadparwaiz1/cmp_luasnip",
 		"onsails/lspkind.nvim",
+		"crazyhulk/cmp-sign",
+		"Dosx001/cmp-commit",
 	},
 
 	config = function()
@@ -72,12 +74,10 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 			},
 			sources = cmp.config.sources({
-				-- { name = "copilot", group_index = 2 },
 				{ name = "nvim_lsp", group_index = 2 },
-				-- { name = 'vsnip' }, -- For vsnip users.
 				{ name = "luasnip", group_index = 2 }, -- For luasnip users.
-				-- { name = 'ultisnips' }, -- For ultisnips users.
-				-- { name = 'snippy' }, -- For snippy users.
+				{ name = "nvim_cmp_sign", group_index = 2 },
+				{ name = "git", group_index = 2 },
 			}, {
 				{ name = "buffer", group_index = 2 },
 				{ name = "path", group_index = 2 },

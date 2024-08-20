@@ -26,6 +26,10 @@ return {
 				"toml",
 				"yaml",
 				"kotlin",
+				"git_config",
+				"gitcommit",
+				"git_rebase",
+				"gitattributes",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)
