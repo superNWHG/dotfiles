@@ -4,7 +4,7 @@ return {
 
 	config = function()
 		require("mason-nvim-dap").setup({
-			ensure_installed = { "python", "bash", "c", "kotlin", "js", "cppdbg" },
+			ensure_installed = { "python", "bash", "c", "kotlin", "js", "cppdbg", "delve" },
 
 			handlers = {
 				function(config)

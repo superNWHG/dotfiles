@@ -30,6 +30,7 @@ return {
 				"gitcommit",
 				"git_rebase",
 				"gitattributes",
+				"go",
 			},
 
 			-- Install parsers synchronously (only applied to `ensure_installed`)

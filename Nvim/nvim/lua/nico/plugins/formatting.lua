@@ -17,6 +17,7 @@ return {
 				csharp = { "csharpier" },
 				kotlin = { "ktfmt" },
 				c = { "clang-format" },
+				go = { "crlfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

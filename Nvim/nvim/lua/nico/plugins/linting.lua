@@ -13,6 +13,7 @@ return {
 			csharp = { "cspell" },
 			kotlin = { "ktlint" },
 			c = { "cpplint" },
+			go = { "golangcilint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

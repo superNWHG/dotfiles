@@ -1,7 +1,7 @@
 vim.opt.termguicolors = true
 
 -- line number options
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.number = true
 
 -- use the right cursor when closing Neovim
