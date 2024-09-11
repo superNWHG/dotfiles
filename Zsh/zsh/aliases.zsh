@@ -30,8 +30,11 @@ alias gd="git diff"
 
 # Typo aliases
 alias vnim="nvim"
+alias nvm="nvim"
+alias nvi="nvim"
 alias dc="cd"
 alias sduo="sudo"
+alias sodu="sudo"
 
 # Other aliases
 alias cd="z"
