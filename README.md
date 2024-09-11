@@ -30,7 +30,7 @@ _Optional_
 - Webcord -
   You can install it using the AUR by doing `paru -S webcord`
 - Whatstron -
-  You can install it using the AUR by doing `paru -S whattron`
+  You can install it using the AUR by doing `paru -S whatstron-bin`
 - KeepassXC -
   You can install it by doing `sudo pacman -S keepassxc`
 - Zsh vim mode -
