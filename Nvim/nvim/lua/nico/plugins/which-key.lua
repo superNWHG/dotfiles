@@ -19,6 +19,7 @@ return {
 		noremap = true, -- use `noremap` when creating keymaps
 		nowait = false, -- use `nowait` when creating keymaps
 		expr = false, -- use `expr` when creating keymaps
+		notify = false,
 	},
 	config = function(_, opts)
 		local wk = require("which-key")
