@@ -3,6 +3,7 @@ alias pacin="sudo pacman -S"
 alias pacrem="sudo pacman -Rns"
 alias pacreps="pacman -Ss"
 alias pacmir="sudo pacman -Syy"
+alias pac="sudo pacman"
 
 # Pacman aliases
 alias parin="paru -S"
