@@ -36,5 +36,8 @@ alias dc="cd"
 alias sduo="sudo"
 alias sodu="sudo"
 
+# Make sure alias-tips will ignore typo aliases
+export ZSH_PLUGINS_ALIAS_TIPS_EXCLUDES="vnim nvm nvi dc sduo sodu"
+
 # Other aliases
 alias cd="z"
