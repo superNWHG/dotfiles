@@ -73,8 +73,8 @@
     },
     "update": {
         "notification": {
-            "version": "v4.10.0",
-            "till": "2024-07-13T14:30:28.456Z"
+            "version": "v4.10.1",
+            "till": "2024-09-01T08:39:45.916Z"
         }
     },
     "screenShareStore": {
