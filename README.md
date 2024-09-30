@@ -61,7 +61,7 @@ chmod +x ~/dotfiles/install.sh
 To install using the script do:
 
 ```shell
-./~/dotfiles/install-hyprland.sh
+~/dotfiles/install.sh
 ```
 
 **Manual Installation**
