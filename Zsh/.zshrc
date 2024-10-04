@@ -44,3 +44,6 @@ bindkey "^[[3~" delete-char
 # Intialize starship
 export STARSHIP_CONFIG=~/.config/zsh/starship.toml
 eval "$(starship init zsh)"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/nico/go/bin/gocomplete go
