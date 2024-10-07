@@ -38,6 +38,17 @@ _Optional_
 
 ## **Installation**
 
+**Install using doman**
+
+You can install my dotfiles by using a dotfiles manager called [doman](https://github.com/superNWHG/doman).
+To install it with doman, run these commands:
+``` shell
+doman new --clone --url https://github.com/superNWHG/dotfiles.git
+doman link --path ./dotfiles
+```
+
+**Or install using the install script or manually**
+
 Clone the repo by doing:
 
 ```shell
