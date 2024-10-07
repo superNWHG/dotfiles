@@ -1,0 +1,13 @@
+{
+  "Alacritty/alacritty": "/home/nico/.config/alacritty",
+  "Dunst/dunst": "/home/nico/.config/dunst",
+  "Fastfetch/fastfetch": "/home/nico/.config/fastfetch",
+  "Hyprland/hypr": "/home/nico/.config/hypr",
+  "Nvim/nvim": "/home/nico/.config/nvim",
+  "Scripts/scripts": "/home/nico/.config/scripts",
+  "Tofi/tofi": "/home/nico/.config/tofi",
+  "Waybar/waybar": "/home/nico/.config/waybar",
+  "Webcord": "/home/nico/.config/WebCord",
+  "Wlogout/wlogout": "/home/nico/.config/wlogout"
+}
+
