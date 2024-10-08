@@ -9,6 +9,8 @@
   "Waybar/waybar": "/home/nico/.config/waybar",
   "Webcord/Themes": "/home/nico/.config/WebCord/Themes",
   "Webcord/config.json": "/home/nico/.config/WebCord/config.json",
-  "Wlogout/wlogout": "/home/nico/.config/wlogout"
+  "Wlogout/wlogout": "/home/nico/.config/wlogout",
+  "Zsh/.zshrc": "/home/nico/.zshrc",
+  "Zsh/zsh": "/home/nico/.config/zsh"
 }
 
