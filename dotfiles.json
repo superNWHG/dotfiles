@@ -7,7 +7,8 @@
   "Scripts/scripts": "/home/nico/.config/scripts",
   "Tofi/tofi": "/home/nico/.config/tofi",
   "Waybar/waybar": "/home/nico/.config/waybar",
-  "Webcord": "/home/nico/.config/WebCord",
+  "Webcord/Themes": "/home/nico/.config/WebCord/Themes",
+  "Webcord/config.json": "/home/nico/.config/WebCord/config.json",
   "Wlogout/wlogout": "/home/nico/.config/wlogout"
 }
 
