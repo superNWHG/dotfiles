@@ -72,6 +72,7 @@ return {
 				"<cmd>bdelete<cr> <bar> <cmd>bnext<cr>",
 				{ desc = "Close the current buffer" }
 			),
+			vim.keymap.set("n", "<leader>bp", "<cmd>BufferLinePick<cr>", { desc = "Pick a buffer" }),
 		},
 	},
 }
