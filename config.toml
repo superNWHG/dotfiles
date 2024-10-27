@@ -1,0 +1,30 @@
+[NewRepo]
+  newRepoClone = false
+  newRepoDataFile = false
+  newRepoUrl = ""
+
+[Init]
+
+[Add]
+  addName = ""
+  addEntry = ""
+  addExisting = false
+  addFormat = false
+
+[Read]
+
+[Sync]
+  syncMessage = ""
+  syncAuth = false
+  syncPush = false
+
+[Link]
+
+[Edit]
+  editName = ""
+  editEditor = ""
+  editFormat = false
+
+[Config]
+  configNew = false
+  configRead = false
