@@ -3,22 +3,16 @@
   newRepoDataFile = false
   newRepoUrl = ""
 
-[Init]
-
 [Add]
   addName = ""
   addEntry = ""
   addExisting = false
   addFormat = false
 
-[Read]
-
 [Sync]
   syncMessage = "New changes"
   syncAuth = true
   syncPush = false
-
-[Link]
 
 [Edit]
   editName = ""
