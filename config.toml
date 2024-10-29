@@ -14,8 +14,8 @@
 [Read]
 
 [Sync]
-  syncMessage = ""
-  syncAuth = false
+  syncMessage = "New changes"
+  syncAuth = true
   syncPush = false
 
 [Link]
@@ -23,8 +23,8 @@
 [Edit]
   editName = ""
   editEditor = ""
-  editFormat = false
+  editFormat = true
 
 [Config]
   configNew = false
-  configRead = false
+  configRead = true
