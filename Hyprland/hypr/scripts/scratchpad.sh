@@ -24,15 +24,13 @@ while IFS= read -r entry; do
     fi
 done < ~/.cache/temp_file
 
-echo $CurrentWorkspace
-
 if test -z "$CurrentWorkspace"; then
-	if [ "$WindowClass" = "Btop" ]; then
-		hyprctl dispatch exec -- alacritty --class Btop --command btop
+	if [ "$WindowClass" = "ghostty.Btop" ]; then
+		hyprctl dispatch exec -- ghostty --class=ghostty.Btop --command=btop
 		exit
 	fi
-	if [ "$WindowClass" = "ScratchTerm" ]; then
-		hyprctl dispatch exec -- alacritty --class ScratchTerm
+	if [ "$WindowClass" = "ghostty.ScratchTerm" ]; then
+		hyprctl dispatch exec -- ghostty --class=ghostty.ScratchTerm
 		exit
 	fi
 fi

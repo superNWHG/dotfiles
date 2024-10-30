@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CAVA_COMMAND='alacritty --command="cava" --class="alacritty-bg" --option "window.opacity=0" &'
+CAVA_COMMAND='ghostty --command=cava --class=ghostty.bg background-opacity=0 &'
 OPENED=false
 
 while true; do
