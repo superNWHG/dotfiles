@@ -11,7 +11,8 @@
 
 [Sync]
   syncMessage = "New changes"
-  syncAuth = true
+  syncAuth = false
+  syncGitAuth = true
   syncPush = false
 
 [Edit]
@@ -22,3 +23,6 @@
 [Config]
   configNew = false
   configRead = true
+
+[Install]
+  os = "arch"
