@@ -25,6 +25,7 @@ return {
 					name = "LSP",
 					h = { vim.lsp.buf.hover, "Show documentation" },
 					r = { vim.lsp.buf.rename, "Rename variable" },
+					c = { vim.lsp.buf.code_action, "Code action" },
 				},
 			}, { prefix = "<leader>" })
 		end

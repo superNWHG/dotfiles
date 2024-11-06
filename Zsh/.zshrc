@@ -6,6 +6,8 @@ export PATH=$PATH:/home/nico/.local/share/gem/ruby/3.0.0/bin
 
 export PATH=$PATH:/home/nico/go/bin
 
+export GPG_TTY=$(tty)
+
 # history settings
 HISTFILE=~/.zsh_history
 HISTSIZE=20000
