@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 credpath="$HOME/mealiecreds.json"
 url=$(jq -r ".url" $credpath)
