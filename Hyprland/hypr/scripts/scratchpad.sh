@@ -38,8 +38,8 @@ fi
 FocusWorkspace=$(hyprctl activeworkspace -j | jq -r ".id")
 
 if [ "$CurrentWorkspace" = "-99" ]; then
-	hyprctl dispatch movetoworkspace "$FocusWorkspace","$WindowClass"
+	hyprctl dispatch movetoworkspace "$FocusWorkspace",class:"$WindowClass"
 else
-	hyprctl dispatch movetoworkspacesilent special,"$WindowClass"
+	hyprctl dispatch movetoworkspacesilent special,class:"$WindowClass"
 fi
 rm ~/.cache/temp_file
