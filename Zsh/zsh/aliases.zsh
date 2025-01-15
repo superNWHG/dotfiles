@@ -17,6 +17,7 @@ alias ccd="cd && clear"
 alias ls="lsd"
 alias history="history 0"
 alias s="sudo"
+alias k="k -h"
 
 # Git aliases
 alias g="git"
@@ -27,6 +28,7 @@ alias gp="git push"
 alias gpl="git pull"
 alias gd="git diff"
 alias gst="git status"
+alias gr="git reset HEAD --hard"
 
 # Typo aliases
 alias vnim="nvim"

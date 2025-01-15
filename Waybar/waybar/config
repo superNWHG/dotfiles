@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["tray", "battery", "backlight"],
+    "modules-left": ["tray", "battery", "backlight", "custom/mealie"],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": ["custom/spotify", "custom/cava", "pulseaudio", "network", "clock"],
     // Modules configuration
@@ -89,12 +89,16 @@
 		    "exec": "/usr/bin/python3 ~/.config/waybar/mediaplayer.py --player spotify",
 		    "format": "{}  ",
 		    "return-type": "json",
-		    "on-click": "playerctl play-pause",
-		    "on-scroll-up": "playerctl next",
-		    "on-click-middle": "playerctl previous",
-				"on-click-right": "playerctl next"
+		    "on-click": "playerctl --player=spotify play-pause",
+		    "on-click-middle": "playerctl --player=spotify previous",
+				"on-click-right": "playerctl --player=spotify next"
 		},
 		"custom/cava": {
 			"exec": "~/.config/waybar/cava.sh"
 		},
+		"custom/mealie": {
+			"exec": "~/.config/scripts/mealie.sh",
+			"format": "󰉚  {}",
+			"on-click": "xdg-open $(jq -r .url ~/mealiecreds.json)"
+		}
 }

@@ -47,3 +47,7 @@ success_symbol = ''
 format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
 map_symbol = true
 disabled = false
+
+[custom.mealie]
+command = "~/.config/scripts/mealie.sh"
+when = "true"
